@@ -6,192 +6,252 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Biodata Adly Zaidan Zidna Fann</title>
 
-    <!-- Bootstrap 5 CDN -->
+    <!-- Bootstrap CDN -->
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
           rel="stylesheet">
 
     <style>
+        * {
+            box-sizing: border-box;
+        }
+
         body {
-            background: linear-gradient(135deg, #0f172a, #1d4ed8);
+            margin: 0;
+            background: #eaf6fc;
+            font-family: Arial, Helvetica, sans-serif;
+            color: #292b30;
+        }
+
+        .page {
             min-height: 100vh;
-            font-family: Arial, sans-serif;
-            color: #fff;
-        }
-
-        .biodata-card {
-            background: rgba(255, 255, 255, 0.97);
-            color: #1e293b;
-            border-radius: 24px;
-            overflow: hidden;
-            box-shadow: 0 15px 40px rgba(0, 0, 0, 0.25);
-        }
-
-        .header-card {
-            background: linear-gradient(135deg, #2563eb, #06b6d4);
-            color: white;
+            display: flex;
+            align-items: center;
+            justify-content: center;
             padding: 35px 20px;
+        }
+
+        .profile-card {
+            width: 100%;
+            max-width: 650px;
+            background: #ffffff;
+            border-radius: 42px 42px 6px 6px;
+            padding: 40px;
+            box-shadow: 0 18px 45px rgba(0, 0, 0, 0.10);
             text-align: center;
         }
 
-        .profile-icon {
-            width: 105px;
-            height: 105px;
-            background: white;
-            color: #2563eb;
+        .avatar {
+            width: 168px;
+            height: 168px;
             border-radius: 50%;
+            background: #1870f5;
+            color: white;
             display: flex;
-            justify-content: center;
             align-items: center;
-            margin: 0 auto 15px;
-            font-size: 48px;
-            border: 5px solid rgba(255,255,255,0.5);
-        }
-
-        .info-box {
-            background: #f1f5f9;
-            border-radius: 14px;
-            padding: 15px;
-            margin-bottom: 13px;
-        }
-
-        .info-label {
-            color: #64748b;
-            font-size: 13px;
-            margin-bottom: 5px;
-        }
-
-        .info-value {
+            justify-content: center;
+            font-size: 55px;
             font-weight: bold;
-            font-size: 16px;
+            margin: 0 auto 28px;
+        }
+
+        .name {
+            font-size: 36px;
+            font-weight: 700;
+            margin-bottom: 12px;
             overflow-wrap: anywhere;
         }
 
-        .semester-badge {
-            background: #dbeafe;
-            color: #1d4ed8;
-            padding: 7px 14px;
-            border-radius: 30px;
-            display: inline-block;
-            font-weight: bold;
+        .subtitle {
+            color: #666970;
+            font-size: 24px;
+            margin-bottom: 42px;
         }
 
-        .footer-text {
-            color: #cbd5e1;
-            font-size: 12px;
+        .info-box {
+            text-align: left;
+            background: #f6f7f9;
+            border-radius: 20px;
+            padding: 25px;
+            margin-bottom: 17px;
+        }
+
+        .info-label {
+            color: #666970;
+            font-size: 20px;
+            margin-bottom: 8px;
+        }
+
+        .info-value {
+            font-size: 24px;
+            font-weight: bold;
+            overflow-wrap: anywhere;
+        }
+
+        .profile-button {
+            display: block;
+            width: 100%;
+            border: none;
+            background: #1870f5;
+            color: white;
+            border-radius: 50px;
+            padding: 15px;
+            font-size: 22px;
+            margin-top: 42px;
+            transition: 0.2s;
+        }
+
+        .profile-button:hover {
+            background: #0758d5;
+            color: white;
+            transform: translateY(-2px);
+        }
+
+        .footer {
+            color: #666970;
+            font-size: 22px;
+            margin-top: 55px;
+            margin-bottom: 5px;
+        }
+
+        #detail {
+            display: none;
+            text-align: left;
+            margin-top: 22px;
+            padding: 20px;
+            background: #eef5ff;
+            border-radius: 16px;
+            line-height: 1.7;
+        }
+
+        @media (max-width: 480px) {
+            .page {
+                padding: 30px 14px;
+            }
+
+            .profile-card {
+                padding: 32px 22px;
+                border-radius: 30px 30px 6px 6px;
+            }
+
+            .avatar {
+                width: 130px;
+                height: 130px;
+                font-size: 44px;
+                margin-bottom: 25px;
+            }
+
+            .name {
+                font-size: 28px;
+            }
+
+            .subtitle {
+                font-size: 20px;
+                margin-bottom: 35px;
+            }
+
+            .info-box {
+                padding: 22px 20px;
+                border-radius: 18px;
+                margin-bottom: 16px;
+            }
+
+            .info-label {
+                font-size: 18px;
+            }
+
+            .info-value {
+                font-size: 20px;
+            }
+
+            .profile-button {
+                font-size: 20px;
+                margin-top: 35px;
+            }
+
+            .footer {
+                font-size: 18px;
+                margin-top: 45px;
+            }
         }
     </style>
 </head>
 
 <body>
-    <div class="container py-5">
-        <div class="row justify-content-center">
-            <div class="col-12 col-sm-10 col-md-7 col-lg-5">
 
-                <div class="biodata-card">
-                    <div class="header-card">
-                        <div class="profile-icon">
-                            👨‍🎓
-                        </div>
+<div class="page">
+    <main class="profile-card">
 
-                        <h3 class="fw-bold mb-2">
-                            Biodata Mahasiswa
-                        </h3>
+        <!-- Inisial nama -->
+        <div class="avatar">AZ</div>
 
-                        <p class="mb-0">
-                            Profil Mahasiswa
-                        </p>
-                    </div>
+        <h1 class="name">Adly Zaidan Zidna Fann</h1>
+        <p class="subtitle">Mahasiswa Semester 1</p>
 
-                    <div class="p-4">
-                        <div class="text-center mb-4">
-                            <h4 class="fw-bold">
-                                Adly Zaidan Zidna Fann
-                            </h4>
-                            <span class="semester-badge">
-                                Mahasiswa Semester 1
-                            </span>
-                        </div>
-
-                        <div class="info-box">
-                            <div class="info-label">
-                                👤 Nama Lengkap
-                            </div>
-                            <div class="info-value">
-                                Adly Zaidan Zidna Fann
-                            </div>
-                        </div>
-
-                        <div class="info-box">
-                            <div class="info-label">
-                                🎓 Program Studi
-                            </div>
-                            <div class="info-value">
-                                Komputerisasi Akuntansi
-                            </div>
-                        </div>
-
-                        <div class="info-box">
-                            <div class="info-label">
-                                📚 Semester
-                            </div>
-                            <div class="info-value">
-                                Semester 1
-                            </div>
-                        </div>
-
-                        <div class="info-box">
-                            <div class="info-label">
-                                💻 Bidang Pembelajaran
-                            </div>
-                            <div class="info-value">
-                                Akuntansi dan Teknologi Informasi
-                            </div>
-                        </div>
-
-                        <div class="mt-4 text-center">
-                            <p class="text-secondary small mb-3">
-                                "Terus belajar, terus berkembang,
-                                dan wujudkan masa depan yang lebih baik."
-                            </p>
-
-                            <button
-                                class="btn btn-primary w-100 rounded-pill py-2"
-                                onclick="tampilkanPesan()">
-                                ✨ Tentang Saya
-                            </button>
-
-                            <p id="pesan"
-                               class="mt-3 fw-semibold text-primary"
-                               style="display:none;">
-                                Saya siap belajar dan mengembangkan
-                                kemampuan di bidang akuntansi
-                                dan teknologi!
-                            </p>
-                        </div>
-                    </div>
-                </div>
-
-                <p class="footer-text text-center mt-4">
-                    © 2026 Adly Zaidan Zidna Fann
-                </p>
-
+        <!-- Biodata -->
+        <div class="info-box">
+            <div class="info-label">Nama Lengkap</div>
+            <div class="info-value">
+                Adly Zaidan Zidna Fann
             </div>
         </div>
-    </div>
 
-    <script>
-        function tampilkanPesan() {
-            const pesan = document.getElementById("pesan");
+        <div class="info-box">
+            <div class="info-label">Program Studi</div>
+            <div class="info-value">
+                Komputerisasi Akuntansi
+            </div>
+        </div>
 
-            if (pesan.style.display === "none") {
-                pesan.style.display = "block";
-            } else {
-                pesan.style.display = "none";
-            }
+        <div class="info-box">
+            <div class="info-label">Semester</div>
+            <div class="info-value">Semester 1</div>
+        </div>
+
+        <div class="info-box">
+            <div class="info-label">Status</div>
+            <div class="info-value">Mahasiswa</div>
+        </div>
+
+        <!-- Tombol profil -->
+        <button class="profile-button"
+                onclick="lihatProfil()">
+            Lihat Profil
+        </button>
+
+        <div id="detail">
+            <h5 class="fw-bold">Tentang Saya</h5>
+            <p class="mb-0">
+                Halo! Saya Adly Zaidan Zidna Fann,
+                mahasiswa Program Studi Komputerisasi Akuntansi
+                semester 1. Saya ingin terus belajar dan
+                mengembangkan kemampuan di bidang akuntansi
+                serta teknologi informasi.
+            </p>
+        </div>
+
+        <footer class="footer">
+            © 2026 Adly Zaidan Zidna Fann
+        </footer>
+
+    </main>
+</div>
+
+<script>
+    function lihatProfil() {
+        const detail = document.getElementById("detail");
+        const tombol = document.querySelector(".profile-button");
+
+        if (detail.style.display === "block") {
+            detail.style.display = "none";
+            tombol.textContent = "Lihat Profil";
+        } else {
+            detail.style.display = "block";
+            tombol.textContent = "Tutup Profil";
         }
-    </script>
+    }
+</script>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+
 </body>
 </html>
-
