@@ -2,578 +2,195 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Adly's Personal Website</title>
-
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-
-    <style>
-        * {
-            box-sizing: border-box;
-        }
-
-        body {
-            margin: 0;
-            min-height: 100vh;
-            font-family: Arial, Helvetica, sans-serif;
-            background: linear-gradient(135deg, #dbeafe, #fce7f3, #ede9fe);
-            color: #26334a;
-        }
-
-        .hidden {
-            display: none !important;
-        }
-
-        /* LOGIN */
-        #loginPage {
-            min-height: 100vh;
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            padding: 20px;
-        }
-
-        .login-card {
-            background: rgba(255, 255, 255, 0.95);
-            width: 100%;
-            max-width: 430px;
-            padding: 35px;
-            border-radius: 28px;
-            box-shadow: 0 15px 45px #34456325;
-            text-align: center;
-        }
-
-        .login-icon {
-            font-size: 65px;
-            margin-bottom: 10px;
-        }
-
-        .login-card h1 {
-            font-weight: 800;
-            color: #4f46e5;
-            font-size: 29px;
-        }
-
-        .login-card p {
-            color: #6b7280;
-        }
-
-        .login-card .form-control {
-            padding: 13px;
-            border-radius: 12px;
-            margin-bottom: 15px;
-        }
-
-        .main-btn {
-            width: 100%;
-            padding: 13px;
-            background: #4f46e5;
-            color: white;
-            border: none;
-            border-radius: 13px;
-            font-weight: bold;
-            transition: .2s;
-        }
-
-        .main-btn:hover {
-            background: #3730a3;
-            transform: translateY(-2px);
-        }
-
-        #loginError {
-            color: #dc2626;
-            margin-top: 15px;
-            font-size: 14px;
-        }
-
-        /* NAVBAR */
-        .navbar-custom {
-            background: #ffffffeb;
-            padding: 16px 20px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            gap: 12px;
-            flex-wrap: wrap;
-            box-shadow: 0 4px 15px #0000000c;
-        }
-
-        .brand {
-            color: #4f46e5;
-            font-size: 23px;
-            font-weight: 800;
-        }
-
-        .logout-btn {
-            border: none;
-            background: #fee2e2;
-            color: #b91c1c;
-            border-radius: 20px;
-            padding: 9px 17px;
-            font-weight: bold;
-        }
-
-        /* PROFIL */
-        .profile-container {
-            max-width: 1000px;
-            margin: 40px auto;
-            padding: 0 18px;
-        }
-
-        .hero {
-            background: white;
-            border-radius: 30px;
-            padding: 40px 25px;
-            text-align: center;
-            box-shadow: 0 12px 35px #34456315;
-        }
-
-        .photo-frame {
-            width: 180px;
-            height: 180px;
-            margin: 0 auto 22px;
-            padding: 6px;
-            background: linear-gradient(135deg, #818cf8, #f472b6);
-            border-radius: 50%;
-            box-shadow: 0 8px 22px #6366f140;
-        }
-
-        .photo-frame img {
-            display: block;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            border-radius: 50%;
-            background: #e5e7eb;
-        }
-
-        .hero h1 {
-            font-weight: 800;
-            font-size: clamp(27px, 5vw, 42px);
-            color: #4338ca;
-            overflow-wrap: anywhere;
-        }
-
-        .hero .subtitle {
-            color: #6b7280;
-            font-size: 17px;
-        }
-
-        .badge-custom {
-            display: inline-block;
-            margin-top: 10px;
-            padding: 9px 16px;
-            background: #ede9fe;
-            color: #5b21b6;
-            border-radius: 30px;
-            font-weight: bold;
-        }
-
-        .section-heading {
-            font-size: 25px;
-            font-weight: 800;
-            margin: 35px 0 18px;
-            color: #3730a3;
-        }
-
-        .info-card {
-            height: 100%;
-            background: white;
-            border-radius: 20px;
-            padding: 23px;
-            box-shadow: 0 7px 20px #34456312;
-            transition: .2s;
-        }
-
-        .info-card:hover {
-            transform: translateY(-4px);
-        }
-
-        .info-icon {
-            font-size: 32px;
-            margin-bottom: 10px;
-        }
-
-        .info-label {
-            font-size: 14px;
-            color: #6b7280;
-            margin-bottom: 6px;
-        }
-
-        .info-value {
-            font-size: 18px;
-            font-weight: bold;
-            overflow-wrap: anywhere;
-        }
-
-        .about-card {
-            background: white;
-            padding: 28px;
-            border-radius: 22px;
-            line-height: 1.8;
-            box-shadow: 0 7px 20px #34456312;
-        }
-
-        .fun-card {
-            background: linear-gradient(135deg, #4f46e5, #9333ea);
-            color: white;
-            padding: 28px;
-            border-radius: 22px;
-            line-height: 1.8;
-        }
-
-        .fun-card h3 {
-            font-weight: bold;
-        }
-
-        .skill-pill {
-            display: inline-block;
-            margin: 5px;
-            padding: 10px 15px;
-            background: #e0e7ff;
-            color: #3730a3;
-            border-radius: 30px;
-            font-weight: bold;
-        }
-
-        .footer {
-            text-align: center;
-            padding: 30px 15px;
-            color: #6b7280;
-        }
-
-        @media (max-width: 480px) {
-            .login-card {
-                padding: 27px 20px;
-            }
-
-            .hero {
-                padding: 30px 17px;
-            }
-
-            .photo-frame {
-                width: 150px;
-                height: 150px;
-            }
-
-            .profile-container {
-                margin-top: 25px;
-            }
-
-            .navbar-custom {
-                padding: 14px;
-            }
-
-            .brand {
-                font-size: 19px;
-            }
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<title>Adly's Adventure Map</title>
+<style>
+*{box-sizing:border-box}
+body{margin:0;font-family:Arial,sans-serif;color:#26334a;background:#eef2ff}
+.hidden{display:none!important}
+button,a{font:inherit}
+.login{min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(145deg,#172554,#4338ca,#a855f7)}
+.login-card{background:white;border-radius:28px;padding:30px;width:100%;max-width:390px;text-align:center;box-shadow:0 20px 60px #0003}
+.login-icon{font-size:65px}
+.login-card h1{color:#4338ca;margin-bottom:8px}
+input{width:100%;padding:13px;border:1px solid #d1d5db;border-radius:12px;margin:7px 0 15px;font-size:16px}
+.btn{display:inline-block;border:0;border-radius:12px;padding:12px 18px;background:#4f46e5;color:white;text-decoration:none;font-weight:bold;cursor:pointer}
+.btn:hover{filter:brightness(.92)}
+#loginError{color:#dc2626;font-size:14px}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:15px 5%;background:#fff;box-shadow:0 3px 15px #0000000c}
+.brand{font-weight:900;color:#4338ca;font-size:21px}
+.logout{border:0;border-radius:20px;padding:9px 15px;background:#fee2e2;color:#991b1b;font-weight:bold;cursor:pointer}
+main{max-width:1100px;margin:auto;padding:24px 18px 45px}
+.hero{position:relative;overflow:hidden;border-radius:25px;padding:30px;color:white;background:linear-gradient(125deg,#172554,#4338ca 65%,#7c3aed);box-shadow:0 12px 30px #4338ca25}
+.hero h1{font-size:clamp(28px,5vw,45px);margin:8px 0}
+.hero p{line-height:1.7}
+.tag{display:inline-block;padding:7px 12px;border-radius:30px;background:#ffffff20;font-size:13px;font-weight:bold}
+.hero-art{font-size:45px;margin-top:8px;letter-spacing:5px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.stat{padding:12px;border-radius:14px;background:#ffffff18;text-align:center}
+.stat b{display:block;font-size:22px}
+h2{color:#312e81;margin:28px 0 15px}
+.path-note{background:#fff7d6;border:1px solid #fcd34d;padding:14px 17px;border-radius:15px;line-height:1.6}
+.map{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.mission{position:relative;display:block;text-decoration:none;color:#26334a;background:white;border:2px solid #e0e7ff;border-radius:22px;padding:19px;box-shadow:0 7px 20px #26334a0b;transition:.2s;overflow:hidden}
+.mission:hover{transform:translateY(-5px);box-shadow:0 12px 25px #4338ca20;border-color:#818cf8}
+.mission .emoji{font-size:37px}
+.mission .number{position:absolute;right:15px;top:15px;font-weight:900;color:#c7d2fe}
+.mission h3{margin:10px 0 7px;color:#3730a3}
+.mission p{margin:0 0 14px;color:#64748b;font-size:14px;line-height:1.5}
+.mission .go{font-weight:bold;color:#4f46e5;font-size:14px}
+.profile{display:grid;grid-template-columns:140px 1fr;align-items:center;gap:22px;background:white;padding:22px;border-radius:22px}
+.photo{width:140px;height:140px;border-radius:50%;object-fit:cover;background:#e0e7ff;border:5px solid #c4b5fd}
+.old-photo{width:100%;max-width:240px;max-height:280px;object-fit:cover;border-radius:17px;background:#e0e7ff}
+footer{text-align:center;color:#64748b;padding:20px;font-size:14px}
+@media(max-width:520px){.map{grid-template-columns:1fr}.hero{padding:22px}.stats{grid-template-columns:repeat(3,1fr)}.stat{font-size:12px}.profile{grid-template-columns:1fr;text-align:center}.photo{margin:auto}.brand{font-size:18px}}
+</style>
 </head>
-
 <body>
 
-<!-- HALAMAN LOGIN -->
-<section id="loginPage">
-    <div class="login-card">
-        <div class="login-icon">🚀</div>
+<section class="login" id="loginPage">
+ <div class="login-card">
+  <div class="login-icon">🧭🏝️</div>
+  <h1>Adventure Awaits!</h1>
+  <p>Masuk ke dunia petualangan Adly. Siapkan bekal dan semangatmu! ⚔️</p>
+  <form id="loginForm">
+   <label for="email">📧 Email</label>
+   <input id="email" type="email" placeholder="Masukkan email" required>
+   <label for="password">🔐 Password</label>
+   <input id="password" type="password" placeholder="Masukkan password" required>
+   <button class="btn" style="width:100%" type="submit">Mulai Petualangan 🚀</button>
+   <p id="loginError" role="alert"></p>
+  </form>
+  <small>Semoga login-mu tidak lebih sulit daripada soal UTS. 😂</small>
+ </div>
+</section>
 
-        <h1>Welcome, Bestie!</h1>
-        <p>Masuk dulu ya, sebelum kenalan sama Adly 😎</p>
+<div id="world" class="hidden">
+ <nav class="nav">
+  <div class="brand">🗺️ ADLY'S ADVENTURE</div>
+  <button class="logout" id="logoutBtn">Keluar ↗</button>
+ </nav>
 
-        <form id="loginForm">
-            <div class="text-start">
-                <label for="email" class="form-label fw-bold">
-                    📧 Email
-                </label>
+ <main>
+  <section class="hero">
+   <span class="tag">WORLD 01 · PLAYER PROFILE</span>
+   <h1>Welcome, Adventurer! ⚔️</h1>
+   <p>Halo, Adly! Selamat datang di peta petualanganmu. Jelajahi setiap pulau, selesaikan semua misi, dan kumpulkan pengalaman. Boss terakhirnya? Deadline tugas! 😂</p>
+   <div class="hero-art">🏰 ➜ 🌲 ➜ 🏝️ ➜ 💎</div>
+   <div class="stats">
+    <div class="stat"><b>6</b>Misi tersedia</div>
+    <div class="stat"><b>Lv. 01</b>Pemula</div>
+    <div class="stat"><b>∞</b>Semangat</div>
+   </div>
+  </section>
 
-                <input
-                    type="email"
-                    id="email"
-                    class="form-control"
-                    placeholder="Masukkan email"
-                    autocomplete="username"
-                    required
-                >
+  <h2>🧭 Peta Misi Petualangan</h2>
+  <div class="path-note">📜 <b>Petunjuk kapten:</b> Pilih kartu di bawah untuk membuka misi. Setiap kartu membawa kamu ke halaman latihan yang berbeda. Gas, petualang!</div>
 
-                <label for="password" class="form-label fw-bold">
-                    🔐 Password
-                </label>
+  <div class="map" style="margin-top:18px">
+   <a class="mission" href="index.html#profil" onclick="showProfile()">
+    <span class="number">01</span><div class="emoji">🏕️</div>
+    <h3>Base Camp</h3><p>Kenali pemain utama, lihat biodata dan galeri foto Adly.</p>
+    <span class="go">Buka profil →</span>
+   </a>
+   <a class="mission" href="lat41.html">
+    <span class="number">02</span><div class="emoji">⏳</div>
+    <h3>Time Island</h3><p>Pulau waktu. Lihat jam dan tanggal yang terus berjalan.</p>
+    <span class="go">Masuk pulau →</span>
+   </a>
+   <a class="mission" href="lat42.html">
+    <span class="number">03</span><div class="emoji">🦴</div>
+    <h3>Age Cave</h3><p>Hitung usia dalam tahun, bulan, dan hari.</p>
+    <span class="go">Jelajahi gua →</span>
+   </a>
+   <a class="mission" href="lat43.html">
+    <span class="number">04</span><div class="emoji">🌳</div>
+    <h3>Logic Forest</h3><p>Selesaikan teka-teki Fibonacci dan penjumlahan bilangan.</p>
+    <span class="go">Masuk hutan →</span>
+   </a>
+   <a class="mission" href="lat44.html">
+    <span class="number">05</span><div class="emoji">🧪</div>
+    <h3>Grade Lab</h3><p>Uji nilai dan temukan huruf mutu A, B, C, D, atau E.</p>
+    <span class="go">Mulai eksperimen →</span>
+   </a>
+   <a class="mission" href="uts_adly_algo.html">
+    <span class="number">06</span><div class="emoji">💎</div>
+    <h3>Algorithm Castle</h3><p>Hadapi boss terakhir: kalkulator aritmatika UTS!</p>
+    <span class="go">Tantang boss →</span>
+   </a>
+  </div>
 
-                <input
-                    type="password"
-                    id="password"
-                    class="form-control"
-                    placeholder="Masukkan password"
-                    autocomplete="current-password"
-                    required
-                >
-            </div>
-
-            <button type="submit" class="main-btn">
-                Masuk ke Profil ✨
-            </button>
-
-            <div id="loginError" role="alert"></div>
-        </form>
-
-        <small class="text-secondary">
-            Siapkan diri untuk kenalan dengan manusia penuh kejutan! 😂
-        </small>
+  <section id="profil">
+   <h2>👤 Base Camp · Data Diri</h2>
+   <div class="profile">
+    <img class="photo" src="Adly.png" alt="Foto Adly" onerror="this.style.display='none';document.getElementById('fallback').style.display='block'">
+    <div>
+     <div id="fallback" style="display:none;font-size:50px">😎</div>
+     <h3>Adly Zaidan Zidna Fann</h3>
+     <p>🎓 Mahasiswa Semester 1<br>💻 Komputerisasi Akuntansi<br>🧠 Calon penakluk algoritma</p>
+     <p><b>Motto:</b> “Kalau error, jangan menyerah. Coba cek titik koma dulu!” 😂</p>
     </div>
-</section>
+   </div>
 
-<!-- HALAMAN PROFIL -->
-<section id="profilePage" class="hidden">
+   <h2>📸 Galeri Kenangan</h2>
+   <div class="profile" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+    <div>
+     <img class="old-photo" src="Adly old.jpg" alt="Foto lama Adly">
+     <p><b>Adly Old 📷</b></p>
+     <small>Foto lama — letakkan file Adly old.jpg di folder yang sama.</small>
+    </div>
+    <div>
+     <img class="old-photo" src="Adly.png" alt="Foto Adly terbaru">
+     <p><b>Adly.png ✨</b></p>
+     <small>Foto profil utama petualang.</small>
+    </div>
+   </div>
+  </section>
+ </main>
 
-    <nav class="navbar-custom">
-        <div class="brand">✨ Adly's Space</div>
-
-        <button type="button" class="logout-btn" id="logoutBtn">
-            Keluar ↗
-        </button>
-    </nav>
-
-    <main class="profile-container">
-
-        <!-- PROFIL UTAMA -->
-        <section class="hero">
-            <div class="photo-frame">
-                <img
-                    src="Adly.png"
-                    alt="Foto Adly Zaidan Zidna Fann"
-                    onerror="
-                        this.style.display='none';
-                        document.getElementById('photoFallback')
-                            .style.display='flex';
-                    "
-                >
-
-                <div
-                    id="photoFallback"
-                    style="
-                        display:none;
-                        width:100%;
-                        height:100%;
-                        align-items:center;
-                        justify-content:center;
-                        font-size:55px;
-                        background:#e0e7ff;
-                        border-radius:50%;
-                    "
-                >
-                    😎
-                </div>
-            </div>
-
-            <h1>Adly Zaidan Zidna Fann</h1>
-
-            <p class="subtitle">
-                Mahasiswa | Calon Orang Sukses | Tukang Cari Ilmu 🤓
-            </p>
-
-            <span class="badge-custom">
-                🎓 Mahasiswa Semester 1
-            </span>
-
-            <p class="mt-4 mb-0">
-                "Pelan-pelan asal berhasil, rebahan jangan kebablasan!" 😂
-            </p>
-        </section>
-
-        <!-- DATA DIRI -->
-        <h2 class="section-heading">📋 Kenalan Yuk!</h2>
-
-        <div class="row g-3">
-
-            <div class="col-12 col-md-6">
-                <div class="info-card">
-                    <div class="info-icon">👤</div>
-                    <div class="info-label">Nama Lengkap</div>
-                    <div class="info-value">
-                        Adly Zaidan Zidna Fann
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="info-card">
-                    <div class="info-icon">🪪</div>
-                    <div class="info-label">NIM</div>
-                    <div class="info-value">262302009</div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="info-card">
-                    <div class="info-icon">💻</div>
-                    <div class="info-label">Program Studi</div>
-                    <div class="info-value">
-                        Komputerisasi Akuntansi
-                    </div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="info-card">
-                    <div class="info-icon">📚</div>
-                    <div class="info-label">Semester</div>
-                    <div class="info-value">Semester 1</div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="info-card">
-                    <div class="info-icon">🎯</div>
-                    <div class="info-label">Status</div>
-                    <div class="info-value">Mahasiswa aktif belajar</div>
-                </div>
-            </div>
-
-            <div class="col-12 col-md-6">
-                <div class="info-card">
-                    <div class="info-icon">🌟</div>
-                    <div class="info-label">Motto Hidup</div>
-                    <div class="info-value">
-                        Belajar, berusaha, dan jangan menyerah!
-                    </div>
-                </div>
-            </div>
-
-        </div>
-
-        <!-- TENTANG SAYA -->
-        <h2 class="section-heading">🙋 Tentang Saya</h2>
-
-        <div class="about-card">
-            <p>
-                Halo semuanya! 👋 Aku <strong>Adly Zaidan Zidna Fann</strong>,
-                mahasiswa Program Studi Komputerisasi Akuntansi semester 1.
-            </p>
-
-            <p>
-                Aku sedang belajar mengembangkan kemampuan di bidang
-                akuntansi dan teknologi informasi. Menurutku, belajar
-                hal baru itu seperti membuka level baru dalam game 🎮.
-            </p>
-
-            <p class="mb-0">
-                Targetku adalah terus berkembang, menambah pengalaman,
-                dan menjadi pribadi yang lebih baik. Doakan sukses,
-                ya! Kalau belum sukses, berarti masih proses update. 😂
-            </p>
-        </div>
-
-        <!-- KEMAMPUAN -->
-        <h2 class="section-heading">🛠️ Hal yang Sedang Dipelajari</h2>
-
-        <div class="about-card text-center">
-            <span class="skill-pill">💻 HTML</span>
-            <span class="skill-pill">🎨 CSS</span>
-            <span class="skill-pill">⚙️ JavaScript</span>
-            <span class="skill-pill">📊 Akuntansi</span>
-            <span class="skill-pill">🧠 Algoritma</span>
-            <span class="skill-pill">📈 Teknologi Informasi</span>
-            <p class="text-secondary mt-3 mb-0">
-                Masih belajar dan terus berkembang. Versi terbaik sedang
-                dalam proses instalasi! 🚀
-            </p>
-        </div>
-
-        <!-- FAKTA LUCU -->
-        <h2 class="section-heading">🤣 Sedikit Fakta Tentang Adly</h2>
-
-        <div class="fun-card">
-            <h3>Warning: Calon Sukses! 🚧</h3>
-
-            <p>
-                🔋 Energi belajar: tergantung deadline.
-            </p>
-
-            <p>
-                🎯 Misi utama: menyelesaikan tugas sebelum dosen bilang,
-                "Sudah dikumpulkan, ya."
-            </p>
-
-            <p>
-                🧠 Prinsip hidup: tidak tahu bukan berarti tidak bisa,
-                mungkin cuma belum buka Google.
-            </p>
-
-            <p class="mb-0">
-                💪 Tujuan akhir: sukses dengan usaha sendiri dan
-                membanggakan orang-orang tersayang.
-            </p>
-        </div>
-
-    </main>
-
-    <footer class="footer">
-        <p class="mb-1">
-            Dibuat dengan ❤️ oleh Adly Zaidan Zidna Fann
-        </p>
-        <p class="mb-0">
-            © 2026 | Keep Learning, Keep Growing 🚀
-        </p>
-    </footer>
-
-</section>
+ <footer>Made with ❤️ by Adly · 2026<br>Keep learning, keep exploring! 🚀</footer>
+</div>
 
 <script>
-    // CATATAN:
-    // Login di bawah hanya untuk demonstrasi.
-    // Email dan password dapat dilihat di source HTML.
-    // Gunakan backend untuk autentikasi website publik.
+const USERNAME = "adly@gmail.com";
+const PASSWORD = "12345678";
 
-    const USERNAME = "adly@gmail.com";
-    const PASSWORD = "12345678";
+const loginPage = document.getElementById("loginPage");
+const world = document.getElementById("world");
 
-    const loginPage = document.getElementById("loginPage");
-    const profilePage = document.getElementById("profilePage");
-    const loginForm = document.getElementById("loginForm");
-    const loginError = document.getElementById("loginError");
+document.getElementById("loginForm").addEventListener("submit", function(e) {
+ e.preventDefault();
+ const email = document.getElementById("email").value.trim().toLowerCase();
+ const password = document.getElementById("password").value;
 
-    loginForm.addEventListener("submit", function(event) {
-        event.preventDefault();
+ if (email === USERNAME && password === PASSWORD) {
+  loginPage.classList.add("hidden");
+  world.classList.remove("hidden");
+  document.getElementById("loginError").textContent = "";
+  if (location.hash === "#profil") {
+   document.getElementById("profil").scrollIntoView();
+  }
+ } else {
+  document.getElementById("loginError").textContent =
+   "Email atau password salah. Coba lagi, petualang! 😅";
+ }
+});
 
-        const email = document.getElementById("email")
-            .value.trim().toLowerCase();
+document.getElementById("logoutBtn").addEventListener("click", function() {
+ world.classList.add("hidden");
+ loginPage.classList.remove("hidden");
+ document.getElementById("loginForm").reset();
+ window.scrollTo(0,0);
+});
 
-        const password = document.getElementById("password")
-            .value;
-
-        if (email === USERNAME && password === PASSWORD) {
-            loginError.textContent = "";
-
-            loginPage.classList.add("hidden");
-            profilePage.classList.remove("hidden");
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        } else {
-            loginError.textContent =
-                "Ups! Email atau password salah. Coba lagi ya 😅";
-        }
-    });
-
-    document.getElementById("logoutBtn")
-        .addEventListener("click", function() {
-            profilePage.classList.add("hidden");
-            loginPage.classList.remove("hidden");
-
-            loginForm.reset();
-            loginError.textContent = "";
-
-            window.scrollTo({
-                top: 0,
-                behavior: "smooth"
-            });
-        });
+function showProfile() {
+ // Halaman profil sudah berada di dalam peta utama.
+ // Fungsi ini juga mendukung tombol kartu Base Camp.
+ setTimeout(function() {
+  document.getElementById("profil").scrollIntoView({behavior:"smooth"});
+ }, 0);
+}
 </script>
-
 </body>
 </html>
