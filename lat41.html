@@ -2,100 +2,35 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Program Menampilkan Waktu</title>
-
-    <!-- Bootstrap CDN -->
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css"
-          rel="stylesheet">
-
-    <style>
-        body {
-            background: #eaf6fc;
-            font-family: Arial, sans-serif;
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 20px;
-        }
-
-        .jam-card {
-            background: white;
-            width: 100%;
-            max-width: 450px;
-            padding: 35px 20px;
-            border-radius: 25px;
-            text-align: center;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
-        }
-
-        .jam {
-            font-size: clamp(38px, 12vw, 60px);
-            font-weight: bold;
-            color: #1870f5;
-            margin: 20px 0;
-        }
-
-        .tanggal {
-            color: #555;
-            font-size: 17px;
-        }
-
-        .label {
-            color: #777;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Time Island | Adly Adventure</title>
+<style>
+*{box-sizing:border-box}body{margin:0;min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(145deg,#172554,#4338ca,#a78bfa);font-family:Arial,sans-serif;color:#fff}.card{width:100%;max-width:500px;text-align:center;background:#ffffff16;border:1px solid #ffffff45;border-radius:28px;padding:30px 22px;box-shadow:0 20px 50px #0002}.emoji{font-size:55px}.tag{letter-spacing:2px;font-size:12px;color:#ddd6fe;font-weight:bold}.clock{font-size:clamp(45px,12vw,70px);font-weight:900;margin:25px 0;color:#fff}.date{font-size:17px;line-height:1.7}.tip{margin:22px 0;padding:15px;border-radius:15px;background:#ffffff18;line-height:1.6}.btn{display:inline-block;padding:12px 18px;border-radius:12px;background:#fef08a;color:#422006;font-weight:bold;text-decoration:none}
+</style>
 </head>
-
 <body>
-
-    <div class="jam-card">
-        <h2 class="fw-bold">Jam Digital</h2>
-        <p class="label">Waktu Saat Ini</p>
-
-        <div id="jam" class="jam">00:00:00</div>
-
-        <div id="tanggal" class="tanggal"></div>
-
-        <hr>
-
-        <p class="text-secondary mb-0">
-            Program HTML dan JavaScript
-        </p>
-    </div>
-
-    <script>
-        function tampilkanWaktu() {
-            // Mengambil waktu sekarang
-            const sekarang = new Date();
-
-            // Mengambil jam, menit, dan detik
-            const jam = String(sekarang.getHours()).padStart(2, "0");
-            const menit = String(sekarang.getMinutes()).padStart(2, "0");
-            const detik = String(sekarang.getSeconds()).padStart(2, "0");
-
-            // Menampilkan waktu
-            document.getElementById("jam").textContent =
-                jam + ":" + menit + ":" + detik;
-
-            // Menampilkan tanggal
-            document.getElementById("tanggal").textContent =
-                sekarang.toLocaleDateString("id-ID", {
-                    weekday: "long",
-                    day: "numeric",
-                    month: "long",
-                    year: "numeric"
-                });
-        }
-
-        // Menampilkan waktu pertama kali
-        tampilkanWaktu();
-
-        // Memperbarui waktu setiap 1 detik
-        setInterval(tampilkanWaktu, 1000);
-    </script>
-
+<main class="card">
+ <div class="emoji">🏝️⏳</div>
+ <div class="tag">MISSION 02 · TIME ISLAND</div>
+ <h1>Pulau Waktu</h1>
+ <p>Waktu terus berjalan, petualang. Jangan sampai tugasmu keduluan deadline! 😂</p>
+ <div class="clock" id="jam">00:00:00</div>
+ <div class="date" id="tanggal">Memuat tanggal...</div>
+ <div class="tip">💡 <b>Misi hari ini:</b><br>Gunakan waktumu untuk belajar sedikit demi sedikit. XP bertambah setiap kali kamu berusaha!</div>
+ <a class="btn" href="index.html">🗺️ Kembali ke Peta</a>
+</main>
+<script>
+function tampilkanWaktu(){
+ const now=new Date();
+ document.getElementById("jam").textContent=
+  [now.getHours(),now.getMinutes(),now.getSeconds()]
+  .map(x=>String(x).padStart(2,"0")).join(":");
+ document.getElementById("tanggal").textContent=
+  now.toLocaleDateString("id-ID",{weekday:"long",day:"numeric",month:"long",year:"numeric"});
+}
+tampilkanWaktu();
+setInterval(tampilkanWaktu,1000);
+</script>
 </body>
 </html>
