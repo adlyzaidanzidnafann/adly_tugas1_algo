@@ -2,154 +2,61 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Latihan Algoritma</title>
-
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background: #eaf6fc;
-            padding: 20px;
-        }
-
-        .container {
-            max-width: 500px;
-            margin: 20px auto;
-        }
-
-        .card {
-            background: white;
-            padding: 25px;
-            margin-bottom: 20px;
-            border-radius: 15px;
-            box-shadow: 0 4px 12px #00000015;
-        }
-
-        h2 {
-            color: #1870f5;
-        }
-
-        input, button {
-            width: 100%;
-            padding: 12px;
-            margin-top: 10px;
-            box-sizing: border-box;
-            border-radius: 8px;
-            font-size: 16px;
-        }
-
-        input {
-            border: 1px solid #ccc;
-        }
-
-        button {
-            background: #1870f5;
-            color: white;
-            border: none;
-            cursor: pointer;
-        }
-
-        button:hover {
-            background: #0758d5;
-        }
-
-        .hasil {
-            background: #eaf6fc;
-            padding: 15px;
-            border-radius: 8px;
-            margin-top: 15px;
-            overflow-wrap: anywhere;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Logic Forest | Adly Adventure</title>
+<style>
+*{box-sizing:border-box}body{margin:0;padding:22px;background:linear-gradient(135deg,#365314,#15803d,#d9f99d);font-family:Arial,sans-serif;color:#18351b}.wrap{max-width:700px;margin:auto}.hero,.card{background:#fff;border-radius:23px;padding:23px;margin-bottom:18px;box-shadow:0 10px 25px #00000012}.hero{text-align:center;background:#f0fdf4}.hero .emoji{font-size:48px}.tag{color:#15803d;font-weight:bold;font-size:12px;letter-spacing:2px}.card h2{color:#166534}.card p{color:#64748b;line-height:1.6}label{display:block;margin:13px 0 7px;font-weight:bold}input{width:100%;padding:12px;border:1px solid #cbd5e1;border-radius:11px;font-size:16px}button,.back{display:block;width:100%;padding:12px;border:0;border-radius:11px;background:#15803d;color:white;font-weight:bold;margin-top:12px;cursor:pointer;text-align:center;text-decoration:none}.result{margin-top:14px;padding:14px;background:#dcfce7;border-radius:12px;line-height:1.6;overflow-wrap:anywhere}
+</style>
 </head>
-
 <body>
-<div class="container">
+<main class="wrap">
+ <header class="hero">
+  <div class="emoji">🌳🧙</div>
+  <div class="tag">MISSION 04 · LOGIC FOREST</div>
+  <h1>Hutan Logika</h1>
+  <p>Gunakan otakmu untuk memecahkan teka-teki. Monster di sini cuma bug JavaScript! 😂</p>
+ </header>
 
-    <div class="card">
-        <h2>1. Hitung Fibonacci</h2>
-        <p>Masukkan nomor suku yang ingin dihitung.</p>
+ <section class="card">
+  <h2>🌱 Misi 1: Fibonacci</h2>
+  <p>Masukkan nomor suku. Suku pertama adalah 0, suku kedua adalah 1.</p>
+  <label for="n">Nomor suku (1–1000)</label>
+  <input type="number" id="n" min="1" max="1000" value="20">
+  <button onclick="fibonacci()">Hitung Fibonacci</button>
+  <div class="result" id="fibResult">Suku ke-20 = 4181</div>
+ </section>
 
-        <label for="n">Nomor suku (N):</label>
-        <input type="number" id="n" value="20" min="1" max="1000">
-
-        <button onclick="hitungFibonacci()">
-            Hitung Fibonacci
-        </button>
-
-        <div class="hasil" id="hasilFib">
-            Suku ke-20 = 4181
-        </div>
-    </div>
-
-    <div class="card">
-        <h2>2. Penjumlahan Dua Bilangan</h2>
-
-        <label for="angka1">Bilangan pertama:</label>
-        <input type="number" id="angka1" placeholder="Masukkan angka pertama">
-
-        <label for="angka2">Bilangan kedua:</label>
-        <input type="number" id="angka2" placeholder="Masukkan angka kedua">
-
-        <button onclick="jumlahkan()">
-            Hitung Jumlah
-        </button>
-
-        <div class="hasil" id="hasilJumlah">
-            Hasil penjumlahan akan muncul di sini.
-        </div>
-    </div>
-
-</div>
-
+ <section class="card">
+  <h2>🪙 Misi 2: Penjumlahan</h2>
+  <label for="a">Bilangan pertama</label>
+  <input type="number" id="a" step="any" placeholder="Contoh: 15">
+  <label for="b">Bilangan kedua</label>
+  <input type="number" id="b" step="any" placeholder="Contoh: 25">
+  <button onclick="jumlahkan()">Hitung Jumlah</button>
+  <div class="result" id="sumResult">Hasil akan muncul di sini.</div>
+ </section>
+ <a class="back" href="index.html">🗺️ Kembali ke Peta</a>
+</main>
 <script>
-    // Fungsi menghitung suku Fibonacci ke-N
-    function hitungFibonacci() {
-        const n = Number(document.getElementById("n").value);
-        const hasil = document.getElementById("hasilFib");
-
-        if (!Number.isInteger(n) || n < 1 || n > 1000) {
-            hasil.textContent =
-                "Masukkan nomor suku berupa bilangan bulat 1–1000.";
-            return;
-        }
-
-        let a = 0;
-        let b = 1;
-
-        if (n === 1) {
-            hasil.textContent = "Suku ke-1 = 0";
-            return;
-        }
-
-        for (let i = 2; i < n; i++) {
-            const c = a + b;
-            a = b;
-            b = c;
-        }
-
-        hasil.textContent = "Suku ke-" + n + " = " + b;
-    }
-
-    // Fungsi menjumlahkan dua bilangan
-    function jumlahkan() {
-        const input1 = document.getElementById("angka1").value;
-        const input2 = document.getElementById("angka2").value;
-        const hasil = document.getElementById("hasilJumlah");
-
-        if (input1 === "" || input2 === "") {
-            hasil.textContent = "Silakan isi kedua bilangan.";
-            return;
-        }
-
-        const a = Number(input1);
-        const b = Number(input2);
-        const total = a + b;
-
-        hasil.textContent = a + " + " + b + " = " + total;
-    }
+function fibonacci(){
+ const n=Number(document.getElementById("n").value);
+ const out=document.getElementById("fibResult");
+ if(!Number.isInteger(n)||n<1||n>1000){out.textContent="Masukkan bilangan bulat dari 1 sampai 1000.";return}
+ let a=0n,b=1n;
+ if(n===1){out.textContent="Suku ke-1 = 0";return}
+ for(let i=2;i<n;i++){const c=a+b;a=b;b=c}
+ out.textContent="Suku ke-"+n+" = "+b.toString();
+}
+function jumlahkan(){
+ const x=document.getElementById("a").value;
+ const y=document.getElementById("b").value;
+ const out=document.getElementById("sumResult");
+ if(x===""||y===""){out.textContent="Isi kedua bilangan terlebih dahulu.";return}
+ const a=Number(x),b=Number(y),total=a+b;
+ if(!Number.isFinite(total)){out.textContent="Hasil tidak dapat dihitung.";return}
+ out.textContent=a+" + "+b+" = "+total;
+}
 </script>
-
 </body>
 </html>
