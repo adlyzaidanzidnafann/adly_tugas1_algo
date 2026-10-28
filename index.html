@@ -2,617 +2,672 @@
 <!DOCTYPE html>
 <html lang="id">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>UTS Algoritma - Adly Zaidan Zidna Fann</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Adly's Space - Biodata</title>
 
-    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+  <style>
+    :root {
+      --navy: #182747;
+      --blue: #4678f5;
+      --pink: #ff8fc7;
+      --yellow: #ffe27a;
+      --paper: #fffdf8;
+      --ink: #26324b;
+      --muted: #68738b;
+    }
 
-    <style>
-        * { box-sizing: border-box; }
+    * {
+      box-sizing: border-box;
+    }
 
-        body {
-            margin: 0;
-            background: #eaf6fc;
-            font-family: Arial, Helvetica, sans-serif;
-            color: #292b30;
-        }
+    body {
+      margin: 0;
+      min-height: 100vh;
+      color: var(--ink);
+      font-family: "Trebuchet MS", Arial, sans-serif;
+      background:
+        radial-gradient(circle at 12% 15%, #ffe7f4, transparent 25%),
+        radial-gradient(circle at 88% 18%, #dce9ff, transparent 25%),
+        #f4f7ff;
+    }
 
-        .navbar-links {
-            display: flex;
-            justify-content: center;
-            flex-wrap: wrap;
-            gap: 12px;
-            padding: 18px 15px;
-            background: white;
-            box-shadow: 0 3px 12px rgba(0,0,0,.06);
-        }
+    button, input {
+      font: inherit;
+    }
 
-        .navbar-links a {
-            display: inline-block;
-            padding: 10px 16px;
-            border-radius: 30px;
-            background: #1870f5;
-            color: white;
-            text-decoration: none;
-            font-weight: 600;
-            transition: .2s;
-        }
+    button {
+      cursor: pointer;
+    }
 
-        .navbar-links a:hover {
-            background: #0758d5;
-            transform: translateY(-2px);
-        }
+    .hidden {
+      display: none !important;
+    }
 
-        .page {
-            min-height: 100vh;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            padding: 35px 20px;
-        }
+    /* HALAMAN LOGIN */
+    .login-wrap {
+      min-height: 100vh;
+      display: grid;
+      place-items: center;
+      padding: 24px;
+    }
 
-        .profile-card {
-            width: 100%;
-            max-width: 650px;
-            background: white;
-            border-radius: 42px 42px 6px 6px;
-            padding: 40px;
-            box-shadow: 0 18px 45px rgba(0,0,0,.10);
-            text-align: center;
-        }
+    .login-card {
+      width: 100%;
+      max-width: 440px;
+      padding: 34px;
+      background: white;
+      border-radius: 30px;
+      box-shadow: 0 18px 55px #26324b20;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .avatar {
-            width: 168px;
-            height: 168px;
-            border-radius: 50%;
-            background: #1870f5;
-            color: white;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            font-size: 55px;
-            font-weight: bold;
-            margin: 0 auto 28px;
-        }
+    .login-card::before {
+      content: "✦";
+      position: absolute;
+      top: 12px;
+      right: 24px;
+      color: var(--pink);
+      font-size: 42px;
+    }
 
-        .name {
-            font-size: 36px;
-            font-weight: 700;
-            margin-bottom: 12px;
-            overflow-wrap: anywhere;
-        }
+    .sticker {
+      display: inline-block;
+      padding: 8px 13px;
+      background: var(--yellow);
+      border: 2px solid var(--navy);
+      border-radius: 999px;
+      font-size: 12px;
+      font-weight: 900;
+      transform: rotate(-3deg);
+    }
 
-        .subtitle {
-            color: #666970;
-            font-size: 24px;
-            margin-bottom: 42px;
-        }
+    .login-card h1 {
+      font-size: clamp(30px, 7vw, 42px);
+      margin: 20px 0 8px;
+      line-height: 1.1;
+    }
 
-        .info-box {
-            text-align: left;
-            background: #f6f7f9;
-            border-radius: 20px;
-            padding: 25px;
-            margin-bottom: 17px;
-        }
+    .login-card p {
+      color: var(--muted);
+      line-height: 1.6;
+    }
 
-        .info-label {
-            color: #666970;
-            font-size: 20px;
-            margin-bottom: 8px;
-        }
+    .field {
+      margin: 18px 0;
+    }
 
-        .info-value {
-            font-size: 24px;
-            font-weight: bold;
-            overflow-wrap: anywhere;
-        }
+    label {
+      display: block;
+      font-weight: 800;
+      margin-bottom: 8px;
+    }
 
-        .profile-button {
-            display: block;
-            width: 100%;
-            border: none;
-            background: #1870f5;
-            color: white;
-            border-radius: 50px;
-            padding: 15px;
-            font-size: 22px;
-            margin-top: 30px;
-            transition: .2s;
-        }
+    input {
+      width: 100%;
+      padding: 14px 15px;
+      border: 2px solid #e9edf5;
+      border-radius: 14px;
+      background: #fbfcff;
+      outline: none;
+    }
 
-        .profile-button:hover {
-            background: #0758d5;
-            color: white;
-            transform: translateY(-2px);
-        }
+    input:focus {
+      border-color: var(--blue);
+    }
 
-        #detail {
-            display: none;
-            text-align: left;
-            margin-top: 22px;
-            padding: 20px;
-            background: #eef5ff;
-            border-radius: 16px;
-            line-height: 1.7;
-        }
+    .primary {
+      width: 100%;
+      border: 0;
+      background: var(--blue);
+      color: white;
+      font-weight: 900;
+      border-radius: 14px;
+      padding: 15px;
+      box-shadow: 0 7px 0 #244ab2;
+    }
 
-        .footer {
-            color: #666970;
-            font-size: 17px;
-            margin-top: 45px;
-            margin-bottom: 5px;
-        }
+    .primary:hover {
+      background: #315fda;
+    }
 
-        /* Kalkulator Aritmatika */
-        .calculator-section {
-            padding: 35px 15px 55px;
-        }
+    .error {
+      color: #c02f58;
+      font-size: 14px;
+      font-weight: bold;
+      margin-top: 12px;
+    }
 
-        .calculator {
-            max-width: 805px;
-            margin: 0 auto;
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0,0,0,.16);
-        }
+    .login-note {
+      font-size: 12px;
+      background: #fff6cf;
+      border-radius: 12px;
+      padding: 11px;
+      margin-top: 20px;
+      line-height: 1.5;
+    }
 
-        .calculator-header {
-            background: #0d6efd;
-            color: white;
-            text-align: center;
-            padding: 22px 15px 18px;
-        }
+    /* NAVIGASI */
+    .topbar {
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 15px;
+      max-width: 1120px;
+      margin: auto;
+      padding: 20px 22px;
+    }
 
-        .calculator-header h2 {
-            font-size: clamp(28px, 5vw, 42px);
-            font-weight: 400;
-            margin: 0 0 12px;
-        }
+    .brand {
+      font-weight: 1000;
+      font-size: 21px;
+    }
 
-        .identity {
-            display: inline;
-            background: white;
-            color: #3979a5;
-            font-size: clamp(14px, 3vw, 23px);
-            overflow-wrap: anywhere;
-        }
+    .brand span {
+      color: var(--blue);
+    }
 
-        .calculator-body {
-            padding: 38px 39px 39px;
-        }
+    .logout {
+      border: 2px solid var(--navy);
+      background: white;
+      color: var(--navy);
+      border-radius: 999px;
+      padding: 9px 15px;
+      font-weight: 800;
+    }
 
-        .form-group {
-            margin-bottom: 25px;
-        }
+    /* BIODATA */
+    .site {
+      padding: 0 18px 42px;
+    }
 
-        .calculator .form-label {
-            font-size: 23px;
-            margin-bottom: 12px;
-            color: #343a40;
-        }
+    .hero {
+      max-width: 1060px;
+      margin: 10px auto 24px;
+      padding: clamp(24px, 5vw, 52px);
+      border-radius: 34px;
+      background: var(--paper);
+      box-shadow: 0 18px 55px #26324b20;
+      position: relative;
+      overflow: hidden;
+    }
 
-        .calculator .form-control,
-        .calculator .form-select {
-            min-height: 60px;
-            border-radius: 10px;
-            font-size: 21px;
-            padding: 10px 18px;
-            border: 1px solid #dee2e6;
-        }
+    .hero::after {
+      content: "♡";
+      position: absolute;
+      right: 28px;
+      top: 10px;
+      font-size: 100px;
+      color: #ff8fc733;
+      pointer-events: none;
+    }
 
-        .btn-hitung {
-            min-height: 60px;
-            font-size: 23px;
-            border-radius: 9px;
-            background: #0d6efd;
-            border-color: #0d6efd;
-        }
+    .hero-grid {
+      display: grid;
+      grid-template-columns: 230px 1fr;
+      gap: 34px;
+      align-items: center;
+    }
 
-        .result-box {
-            margin-top: 38px;
-            background: #212529;
-            color: white;
-            text-align: center;
-            border-radius: 10px;
-            padding: 28px 15px;
-            min-height: 190px;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            overflow-wrap: anywhere;
-        }
+    .photo-frame {
+      width: 220px;
+      height: 220px;
+      border-radius: 32px;
+      padding: 8px;
+      background: linear-gradient(
+        135deg, var(--pink), var(--yellow), #8bb1ff
+      );
+      transform: rotate(-3deg);
+      box-shadow: 8px 10px 0 var(--navy);
+    }
 
-        .result-title {
-            font-size: 20px;
-            margin-bottom: 12px;
-        }
+    .photo-frame img {
+      display: block;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      border: 4px solid white;
+      border-radius: 26px;
+      background: #e9efff;
+    }
 
-        .result-value {
-            font-size: clamp(55px, 9vw, 88px);
-            font-weight: bold;
-            line-height: 1.15;
-        }
+    .eyebrow {
+      color: var(--blue);
+      font-weight: 1000;
+      letter-spacing: 2px;
+      font-size: 12px;
+    }
 
-        .calculation-detail {
-            color: #ced4da;
-            margin-top: 8px;
-        }
+    .hero h1 {
+      margin: 10px 0 12px;
+      font-size: clamp(32px, 6vw, 58px);
+      line-height: 1.02;
+      letter-spacing: -1.8px;
+    }
 
-        .section-title {
-            text-align: center;
-            margin: 20px 0 25px;
-            font-weight: 700;
-            color: #183b63;
-        }
+    .hero h1 span {
+      color: var(--blue);
+    }
 
-        @media (max-width: 480px) {
-            .page { padding: 25px 14px; }
+    .hero-copy {
+      color: var(--muted);
+      line-height: 1.75;
+    }
 
-            .profile-card {
-                padding: 32px 22px;
-                border-radius: 30px 30px 6px 6px;
-            }
+    .tags {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 9px;
+      margin-top: 18px;
+    }
 
-            .avatar {
-                width: 130px;
-                height: 130px;
-                font-size: 44px;
-                margin-bottom: 25px;
-            }
+    .tag {
+      background: #edf2ff;
+      border: 1px solid #dce5ff;
+      border-radius: 999px;
+      padding: 8px 12px;
+      font-size: 13px;
+      font-weight: 800;
+    }
 
-            .name { font-size: 28px; }
+    .section-heading {
+      max-width: 1060px;
+      margin: 30px auto 15px;
+      font-size: 25px;
+    }
 
-            .subtitle {
-                font-size: 20px;
-                margin-bottom: 30px;
-            }
+    .section-heading span {
+      background: var(--yellow);
+      padding: 2px 8px;
+      border-radius: 8px;
+    }
 
-            .info-box {
-                padding: 20px;
-                border-radius: 18px;
-            }
+    .cards {
+      max-width: 1060px;
+      margin: auto;
+      display: grid;
+      grid-template-columns: repeat(3, 1fr);
+      gap: 16px;
+    }
 
-            .info-label { font-size: 17px; }
-            .info-value { font-size: 20px; }
-            .profile-button { font-size: 20px; }
+    .info-card {
+      background: white;
+      border-radius: 22px;
+      padding: 22px;
+      box-shadow: 0 8px 25px #26324b12;
+    }
 
-            .calculator-body {
-                padding: 25px 20px;
-            }
+    .emoji {
+      font-size: 28px;
+      margin-bottom: 12px;
+    }
 
-            .calculator .form-label { font-size: 19px; }
+    .info-card h3 {
+      margin: 0 0 8px;
+      font-size: 17px;
+    }
 
-            .calculator .form-control,
-            .calculator .form-select {
-                min-height: 53px;
-                font-size: 17px;
-            }
+    .info-card p {
+      margin: 0;
+      color: var(--muted);
+      line-height: 1.65;
+      overflow-wrap: anywhere;
+    }
 
-            .btn-hitung {
-                min-height: 54px;
-                font-size: 20px;
-            }
+    .fun {
+      max-width: 1060px;
+      margin: 20px auto 0;
+      border-radius: 24px;
+      padding: 24px;
+      background: var(--navy);
+      color: white;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+      gap: 20px;
+    }
 
-            .result-box {
-                min-height: 155px;
-                margin-top: 28px;
-            }
+    .fun p {
+      color: #d9e2ff;
+      line-height: 1.6;
+    }
 
-            .result-title { font-size: 17px; }
-        }
-    </style>
+    .fun .big {
+      font-size: 38px;
+    }
+
+    /* MENU TUGAS */
+    .links {
+      max-width: 1060px;
+      margin: 22px auto 0;
+      display: flex;
+      flex-wrap: wrap;
+      gap: 10px;
+    }
+
+    .links a {
+      text-decoration: none;
+      color: var(--navy);
+      font-weight: 900;
+      background: white;
+      border: 2px solid var(--navy);
+      border-radius: 12px;
+      padding: 12px 15px;
+      transition: .15s;
+    }
+
+    .links a:hover {
+      background: var(--yellow);
+      transform: translateY(-2px);
+    }
+
+    footer {
+      text-align: center;
+      color: var(--muted);
+      padding: 30px 15px 10px;
+      font-size: 13px;
+    }
+
+    @media (max-width: 700px) {
+      .hero-grid {
+        grid-template-columns: 1fr;
+        justify-items: center;
+        text-align: center;
+      }
+
+      .tags {
+        justify-content: center;
+      }
+
+      .cards {
+        grid-template-columns: 1fr;
+      }
+
+      .fun {
+        align-items: flex-start;
+      }
+    }
+
+    @media (max-width: 420px) {
+      .login-card {
+        padding: 27px 22px;
+      }
+
+      .photo-frame {
+        width: 190px;
+        height: 190px;
+      }
+
+      .hero {
+        border-radius: 25px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <!-- MENU NAVIGASI -->
-    <nav class="navbar-links" aria-label="Navigasi latihan">
-        <a href="lat41.html">Latihan P4-1</a>
-        <a href="lat42.html">Latihan P4-2</a>
-        <a href="lat43.html">Latihan P4-3</a>
-        <a href="lat44.html">Latihan P4-4</a>
-    </nav>
+  <!-- HALAMAN LOGIN -->
+  <section id="loginPage" class="login-wrap">
+    <div class="login-card">
 
-    <!-- BIODATA -->
-    <section class="page" id="biodata">
-        <main class="profile-card">
+      <span class="sticker">AREA ANGGOTA ✨</span>
 
-            <div class="avatar">AZ</div>
+      <h1>Hai, teman!<br>Masuk dulu 👋</h1>
 
-            <h1 class="name">Adly Zaidan Zidna Fann</h1>
-            <p class="subtitle">Mahasiswa Semester 1</p>
+      <p>
+        Selamat datang di <b>Adly's Space</b>!
+        Tempat biodata, tugas, dan sedikit kekacauan
+        yang terorganisir. 😎
+      </p>
 
-            <div class="info-box">
-                <div class="info-label">Nama Lengkap</div>
-                <div class="info-value">
-                    Adly Zaidan Zidna Fann
-                </div>
+      <form id="loginForm">
+        <div class="field">
+          <label for="email">Email / Username</label>
+          <input
+            id="email"
+            type="text"
+            autocomplete="username"
+            placeholder="nama siswa@gmail.com"
+            required
+          >
+        </div>
+
+        <div class="field">
+          <label for="password">Password</label>
+          <input
+            id="password"
+            type="password"
+            autocomplete="current-password"
+            placeholder="Masukkan password"
+            required
+          >
+        </div>
+
+        <button class="primary" type="submit">
+          Gas Masuk 🚀
+        </button>
+
+        <div id="loginError" class="error" role="alert"></div>
+      </form>
+
+      <div class="login-note">
+        🔐 Login ini untuk demonstrasi tugas.
+        Jangan gunakan untuk melindungi data rahasia.
+      </div>
+    </div>
+  </section>
+
+  <!-- HALAMAN BIODATA -->
+  <div id="profilePage" class="hidden">
+
+    <header class="topbar">
+      <div class="brand">Adly<span>'s</span> Space ✦</div>
+      <button id="logoutBtn" class="logout" type="button">
+        Keluar ↗
+      </button>
+    </header>
+
+    <main class="site">
+
+      <!-- PROFIL UTAMA -->
+      <section class="hero">
+        <div class="hero-grid">
+
+          <div class="photo-frame">
+            <!-- Ganti foto-adly.jpg dengan nama file foto kamu -->
+            <img
+              src="foto-adly.jpg"
+              alt="Foto Adly Zaidan Zidna Fann"
+              onerror="this.onerror=null;this.style.display='none';this.parentElement.insertAdjacentHTML('beforeend','<div style=&quot;height:100%;display:grid;place-items:center;font-size:45px;font-weight:1000;color:#182747&quot;>AZ ✨</div>')"
+            >
+          </div>
+
+          <div>
+            <div class="eyebrow">
+              WELCOME TO MY LITTLE CORNER
             </div>
 
-            <div class="info-box">
-                <div class="info-label">NIM</div>
-                <div class="info-value">262302009</div>
+            <h1>Halo, aku <span>Adly!</span> 👋</h1>
+
+            <p class="hero-copy">
+              Mahasiswa yang sedang belajar menaklukkan dunia
+              algoritma, akuntansi, dan teknologi.
+              Kadang kodenya error, tapi semangatnya jangan
+              ikut error. 💻😂
+            </p>
+
+            <div class="tags">
+              <span class="tag">🎓 Mahasiswa Semester 1</span>
+              <span class="tag">💻 Tech Explorer</span>
+              <span class="tag">🌱 Always Learning</span>
             </div>
+          </div>
 
-            <div class="info-box">
-                <div class="info-label">Program Studi</div>
-                <div class="info-value">
-                    Komputerisasi Akuntansi
-                </div>
-            </div>
+        </div>
+      </section>
 
-            <div class="info-box">
-                <div class="info-label">Semester</div>
-                <div class="info-value">Semester 1</div>
-            </div>
+      <h2 class="section-heading">
+        Kenalan lebih dekat <span>👇</span>
+      </h2>
 
-            <div class="info-box">
-                <div class="info-label">Status</div>
-                <div class="info-value">Mahasiswa</div>
-            </div>
+      <!-- INFORMASI BIODATA -->
+      <section class="cards">
 
-            <button
-                class="profile-button"
-                type="button"
-                onclick="lihatProfil()">
-                Lihat Profil
-            </button>
+        <article class="info-card">
+          <div class="emoji">🪪</div>
+          <h3>Nama Lengkap</h3>
+          <p>Adly Zaidan Zidna Fann</p>
+        </article>
 
-            <div id="detail">
-                <h5 class="fw-bold">Tentang Saya</h5>
-                <p class="mb-0">
-                    Halo! Saya Adly Zaidan Zidna Fann, mahasiswa Program
-                    Studi Komputerisasi Akuntansi semester 1. Saya ingin
-                    terus belajar dan mengembangkan kemampuan di bidang
-                    akuntansi serta teknologi informasi.
-                </p>
-            </div>
+        <article class="info-card">
+          <div class="emoji">🔢</div>
+          <h3>NIM</h3>
+          <p>262302009</p>
+        </article>
 
-            <footer class="footer">
-                © 2026 Adly Zaidan Zidna Fann
-            </footer>
+        <article class="info-card">
+          <div class="emoji">📚</div>
+          <h3>Program Studi</h3>
+          <p>Komputerisasi Akuntansi</p>
+        </article>
 
-        </main>
-    </section>
+        <article class="info-card">
+          <div class="emoji">🚀</div>
+          <h3>Status Saat Ini</h3>
+          <p>
+            Mahasiswa Semester 1 yang terus berkembang
+            dan mencoba hal baru.
+          </p>
+        </article>
 
-    <!-- KALKULATOR ARITMATIKA -->
-    <section class="calculator-section" id="kalkulator">
+        <article class="info-card">
+          <div class="emoji">🧠</div>
+          <h3>Lagi Dipelajari</h3>
+          <p>
+            Algoritma, logika pemrograman, HTML, CSS,
+            JavaScript, dan teknologi informasi.
+          </p>
+        </article>
 
-        <h2 class="section-title">Kalkulator Aritmatika</h2>
+        <article class="info-card">
+          <div class="emoji">🎯</div>
+          <h3>Motto Hidup</h3>
+          <p>
+            "Pelan-pelan asal paham. Kalau error,
+            cek lagi—jangan langsung menyalahkan laptop." 😆
+          </p>
+        </article>
 
-        <main class="calculator">
+      </section>
 
-            <header class="calculator-header">
-                <h2>Kalkulator Aritmatika</h2>
-                <span class="identity">
-                    Adly Zaidan Zidna Fann - NIM. 262302009
-                </span>
-            </header>
+      <!-- BAGIAN LUCU -->
+      <section class="fun">
+        <div>
+          <div class="eyebrow" style="color:#ffe27a">
+            FUN FACT
+          </div>
 
-            <div class="calculator-body">
+          <h2>Loading jadi versi terbaik...</h2>
 
-                <div class="form-group">
-                    <label for="angka1" class="form-label">
-                        Angka Pertama
-                    </label>
-                    <input
-                        type="number"
-                        id="angka1"
-                        class="form-control"
-                        value="3"
-                        step="any"
-                        placeholder="Masukkan angka pertama">
-                </div>
+          <p>
+            Progress mungkin 1% sehari, tapi tetap progress.
+            Jangan lupa istirahat dan minum air putih! 🥤
+          </p>
+        </div>
 
-                <div class="form-group">
-                    <label for="angka2" class="form-label">
-                        Angka Kedua
-                    </label>
-                    <input
-                        type="number"
-                        id="angka2"
-                        class="form-control"
-                        value="5"
-                        step="any"
-                        placeholder="Masukkan angka kedua">
-                </div>
+        <div class="big">⭐😎</div>
+      </section>
 
-                <div class="form-group">
-                    <label for="operator" class="form-label">
-                        Pilih Operator
-                    </label>
+      <!-- TAUTAN FILE TUGAS -->
+      <h2 class="section-heading">
+        Pojok tugas <span>🧑‍💻</span>
+      </h2>
 
-                    <select id="operator" class="form-select">
-                        <optgroup label="Operator Aritmatika">
-                            <option value="+">Penjumlahan (+)</option>
-                            <option value="-">Pengurangan (-)</option>
-                            <option value="*">Perkalian (*)</option>
-                            <option value="/">Pembagian (/)</option>
-                            <option value="**" selected>Pangkat (**)</option>
-                            <option value="%">Modulus (%)</option>
-                        </optgroup>
+      <nav class="links" aria-label="Tautan tugas">
+        <a href="lat41.html">🕒 Latihan P4-1 · Jam Digital</a>
+        <a href="lat42.html">🎂 Latihan P4-2 · Kalkulator Usia</a>
+        <a href="lat43.html">🔢 Latihan P4-3 · Fibonacci</a>
+        <a href="lat44.html">📊 Latihan P4-4 · Huruf Mutu</a>
+        <a href="uts_adly_algo.html">🧮 UTS · Kalkulator Aritmatika</a>
+      </nav>
 
-                        <optgroup label="Operator Perbandingan">
-                            <option value="==">Sama dengan (==)</option>
-                            <option value="===">Sama persis (===)</option>
-                            <option value="!=">Tidak sama dengan (!=)</option>
-                            <option value="!==">Tidak sama persis (!==)</option>
-                            <option value=">">Lebih besar dari (&gt;)</option>
-                            <option value="<">Lebih kecil dari (&lt;)</option>
-                            <option value=">=">Lebih besar atau sama dengan (&gt;=)</option>
-                            <option value="<=">Lebih kecil atau sama dengan (&lt;=)</option>
-                        </optgroup>
-                    </select>
-                </div>
+      <footer>
+        © 2026 Adly Zaidan Zidna Fann
+        · Dibuat dengan semangat, kopi opsional ☕
+      </footer>
 
-                <button
-                    type="button"
-                    class="btn btn-primary w-100 btn-hitung"
-                    onclick="hitung()">
-                    Hitung
-                </button>
+    </main>
+  </div>
 
-                <div class="result-box" aria-live="polite">
-                    <div class="result-title">
-                        HASIL PERHITUNGAN
-                    </div>
-                    <div class="result-value" id="hasil">0</div>
-                    <div class="calculation-detail" id="calcDetail">
-                        Masukkan angka dan pilih operator.
-                    </div>
-                </div>
+  <script>
+    /*
+      LOGIN DEMO
+      Username: nama siswa@gmail.com
+      Password: 12345678
 
-            </div>
-        </main>
-    </section>
+      Catatan:
+      Login sisi browser tidak aman untuk data rahasia.
+      Untuk keamanan sungguhan, gunakan backend autentikasi.
+    */
 
-    <script>
-        // Fungsi tombol Lihat Profil
-        function lihatProfil() {
-            const detail = document.getElementById("detail");
-            const tombol = document.querySelector(".profile-button");
+    const USERNAME = "nama siswa@gmail.com";
+    const PASSWORD = "12345678";
 
-            const sedangTampil = detail.style.display === "block";
+    const loginPage = document.getElementById("loginPage");
+    const profilePage = document.getElementById("profilePage");
+    const loginForm = document.getElementById("loginForm");
+    const loginError = document.getElementById("loginError");
 
-            detail.style.display = sedangTampil ? "none" : "block";
-            tombol.textContent = sedangTampil
-                ? "Lihat Profil"
-                : "Tutup Profil";
-        }
+    // Memeriksa login
+    loginForm.addEventListener("submit", function(event) {
+      event.preventDefault();
 
-        // Fungsi kalkulator
-        function hitung() {
-            const nilai1 = document.getElementById("angka1").value;
-            const nilai2 = document.getElementById("angka2").value;
-            const operator = document.getElementById("operator").value;
+      const username = document
+        .getElementById("email")
+        .value
+        .trim()
+        .toLowerCase();
 
-            const hasilElement = document.getElementById("hasil");
-            const detailElement = document.getElementById("calcDetail");
+      const password = document
+        .getElementById("password")
+        .value;
 
-            if (nilai1.trim() === "" || nilai2.trim() === "") {
-                hasilElement.textContent = "!";
-                detailElement.textContent =
-                    "Masukkan kedua angka terlebih dahulu.";
-                return;
-            }
+      if (
+        username === USERNAME &&
+        password === PASSWORD
+      ) {
+        loginError.textContent = "";
+        loginPage.classList.add("hidden");
+        profilePage.classList.remove("hidden");
 
-            const a = Number(nilai1);
-            const b = Number(nilai2);
-            let hasil;
-
-            switch (operator) {
-                case "+":
-                    hasil = a + b;
-                    break;
-
-                case "-":
-                    hasil = a - b;
-                    break;
-
-                case "*":
-                    hasil = a * b;
-                    break;
-
-                case "/":
-                    if (b === 0) {
-                        hasilElement.textContent = "Error";
-                        detailElement.textContent =
-                            "Pembagian dengan nol tidak diperbolehkan.";
-                        return;
-                    }
-                    hasil = a / b;
-                    break;
-
-                case "**":
-                    hasil = a ** b;
-                    break;
-
-                case "%":
-                    if (b === 0) {
-                        hasilElement.textContent = "Error";
-                        detailElement.textContent =
-                            "Modulus dengan nol tidak diperbolehkan.";
-                        return;
-                    }
-                    hasil = a % b;
-                    break;
-
-                case "==":
-                    hasil = a == b;
-                    break;
-
-                case "===":
-                    hasil = a === b;
-                    break;
-
-                case "!=":
-                    hasil = a != b;
-                    break;
-
-                case "!==":
-                    hasil = a !== b;
-                    break;
-
-                case ">":
-                    hasil = a > b;
-                    break;
-
-                case "<":
-                    hasil = a < b;
-                    break;
-
-                case ">=":
-                    hasil = a >= b;
-                    break;
-
-                case "<=":
-                    hasil = a <= b;
-                    break;
-
-                default:
-                    hasilElement.textContent = "Error";
-                    detailElement.textContent = "Operator tidak valid.";
-                    return;
-            }
-
-            if (
-                typeof hasil === "number" &&
-                !Number.isFinite(hasil)
-            ) {
-                hasilElement.textContent = "Error";
-                detailElement.textContent =
-                    "Hasil tidak dapat ditampilkan.";
-                return;
-            }
-
-            if (typeof hasil === "number") {
-                hasil = Number(hasil.toPrecision(12));
-            }
-
-            hasilElement.textContent = String(hasil);
-            detailElement.textContent =
-                `${a} ${operator} ${b} = ${hasil}`;
-        }
-
-        // Tekan Enter untuk menghitung
-        document.addEventListener("keydown", function(event) {
-            if (event.key === "Enter") {
-                const active = document.activeElement;
-
-                if (
-                    active &&
-                    ["angka1", "angka2", "operator"].includes(active.id)
-                ) {
-                    hitung();
-                }
-            }
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
         });
-    </script>
+      } else {
+        loginError.textContent =
+          "Email atau password salah. Coba lagi ya! 🙈";
+      }
+    });
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
+    // Tombol keluar
+    document.getElementById("logoutBtn")
+      .addEventListener("click", function() {
+
+        profilePage.classList.add("hidden");
+        loginPage.classList.remove("hidden");
+
+        loginForm.reset();
+        loginError.textContent = "";
+
+        window.scrollTo({
+          top: 0,
+          behavior: "smooth"
+        });
+      });
+  </script>
 
 </body>
 </html>
