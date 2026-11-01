@@ -4,761 +4,218 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<meta name="theme-color" content="#082d52">
-<title>Adly Zaidan Zidna Fann | Portfolio</title>
-
+<title>Adly's Adventure Map</title>
 <style>
 *{box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{
- margin:0;font-family:Arial,sans-serif;
- background:#f3f6fa;color:#172b43
-}
+body{margin:0;font-family:Arial,sans-serif;color:#26334a;background:#eef2ff}
 .hidden{display:none!important}
-a,button{font:inherit}
-
-/* LOGIN */
-.login{
- min-height:100vh;display:grid;place-items:center;padding:20px;
- background:linear-gradient(135deg,#071d35,#0756a5,#8bbce5)
-}
-.login-card{
- width:100%;max-width:400px;background:white;
- padding:35px 28px;border-radius:22px;text-align:center;
- box-shadow:0 20px 60px #0004
-}
-.login-logo{
- font-size:43px;font-weight:900;letter-spacing:-3px;
- color:#0756a5
-}
-.login-card h1{color:#082d52;font-size:24px}
-.login-card p{color:#718096;font-size:14px;line-height:1.7}
-.login-card label{
- display:block;text-align:left;font-size:13px;
- font-weight:bold;margin:16px 0 7px
-}
-.login-card input{
- width:100%;padding:13px;border:1px solid #d5e0eb;
- border-radius:10px;font-size:15px
-}
-.login-btn{
- width:100%;padding:13px;margin-top:18px;
- border:0;border-radius:10px;background:#0756a5;
- color:white;font-weight:bold;cursor:pointer
-}
-#loginError{color:#dc2626;font-size:13px;min-height:18px}
-
-/* NAVIGATION */
-header{
- position:sticky;top:0;z-index:10;
- background:white;border-bottom:1px solid #e0e8f1
-}
-.nav{
- max-width:1150px;margin:auto;padding:16px 22px;
- display:flex;justify-content:space-between;
- align-items:center;gap:15px
-}
-.brand{font-size:20px;font-weight:900;color:#0756a5}
-.nav-links{
- display:flex;align-items:center;gap:19px;flex-wrap:wrap
-}
-.nav-links a{
- text-decoration:none;color:#40566e;
- font-size:12px;font-weight:bold
-}
-.nav-links a:hover{color:#0756a5}
-.logout{
- border:0;background:#e8f1fa;color:#0756a5;
- padding:9px 14px;border-radius:20px;
- font-weight:bold;cursor:pointer
-}
-
-/* GENERAL */
-main{max-width:1150px;margin:auto;padding:25px 22px 60px}
-section{scroll-margin-top:90px}
-.section{margin-top:65px}
-.eyebrow{
- color:#0756a5;font-size:11px;
- font-weight:bold;letter-spacing:2px
-}
-.section-title{
- font-size:30px;color:#082d52;margin:9px 0 12px
-}
-.section-desc{
- color:#708198;font-size:14px;line-height:1.7;
- max-width:600px
-}
-.card{
- background:white;border:1px solid #e2eaf2;
- border-radius:16px;padding:24px;
- box-shadow:0 7px 22px #082d5209
-}
-
-/* HERO */
-.hero{
- min-height:430px;display:grid;
- grid-template-columns:1.2fr .8fr;
- align-items:center;gap:20px;
- padding:45px;border-radius:22px;
- color:white;
- background:linear-gradient(120deg,#082d52,#0756a5,#327fbd);
- overflow:hidden
-}
-.hero .eyebrow{color:#b9dcff}
-.hero h1{
- font-size:clamp(38px,6vw,62px);
- line-height:1.05;margin:17px 0;
- letter-spacing:-2px
-}
-.hero h1 span{color:#a8d5ff}
-.hero p{
- color:#e0edfa;font-size:15px;
- line-height:1.8;max-width:560px
-}
-.hero-buttons{display:flex;gap:12px;flex-wrap:wrap;margin-top:25px}
-.hero-buttons a{
- text-decoration:none;padding:13px 17px;
- border-radius:9px;font-size:13px;font-weight:bold
-}
-.btn-white{background:white;color:#0756a5}
-.btn-outline{border:1px solid #ffffff80;color:white}
-.hero-photo{
- height:330px;display:flex;justify-content:center;
- align-items:center
-}
-.hero-photo img{
- width:100%;height:100%;object-fit:contain;
- filter:drop-shadow(0 12px 18px #00172f55)
-}
-
-/* ABOUT */
-.about-grid{
- display:grid;grid-template-columns:1fr 1fr;gap:18px
-}
-.about-photo{
- width:100%;height:230px;object-fit:cover;
- border-radius:12px;margin-bottom:17px
-}
-.about-text{font-size:14px;line-height:1.9;color:#60758b}
-.name{font-size:19px;color:#082d52;font-weight:bold}
-.info{
- display:flex;justify-content:space-between;
- gap:12px;padding:13px 0;
- border-bottom:1px solid #edf1f6;font-size:13px
-}
-.info span{color:#718096}
-.info b{text-align:right;color:#183d62}
-.chips{display:flex;gap:9px;flex-wrap:wrap;margin-top:16px}
-.chip{
- background:#eaf3fc;color:#0756a5;
- border-radius:30px;padding:9px 12px;
- font-size:12px;font-weight:bold
-}
-
-/* SKILLS */
-.skills-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.sub-title{font-size:15px;font-weight:bold;color:#0756a5;margin-bottom:17px}
-.skill-items{
- display:grid;grid-template-columns:1fr 1fr;gap:10px
-}
-.skill{
- background:#f0f5fa;padding:13px;
- border-radius:9px;font-size:13px;color:#35536f;
- font-weight:bold
-}
-.tools{display:flex;flex-wrap:wrap;gap:10px}
-.tool{
- border:1px solid #dce7f1;padding:11px 13px;
- border-radius:9px;font-size:13px;color:#35536f
-}
-
-/* EXPERIENCE */
-.timeline{display:grid;gap:15px}
-.timeline-item{
- background:white;border:1px solid #e2eaf2;
- border-radius:13px;padding:19px;
- display:grid;grid-template-columns:110px 1fr;gap:15px
-}
-.year{font-size:13px;color:#0756a5;font-weight:bold}
-.timeline-item h3{margin:0 0 7px;color:#082d52}
-.timeline-item p{margin:0;color:#718096;font-size:13px;line-height:1.7}
-
-/* ORGANIZATION */
-.org-grid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
-.org-card h3{color:#0756a5;margin-top:0}
-.org-card p,.org-card li{
- font-size:13px;line-height:1.8;color:#667b91
-}
-.org-card ul{padding-left:19px}
-
-/* PROJECTS */
-.project-grid{
- display:grid;grid-template-columns:repeat(3,1fr);gap:17px
-}
-.project-card{
- background:white;border:1px solid #e0e9f2;
- border-radius:15px;overflow:hidden
-}
-.project-art{
- height:205px;display:grid;place-items:center;
- text-align:center;padding:20px;
- background:linear-gradient(135deg,#dcecff,#8bbce5);
- color:#0756a5
-}
-.project-art strong{
- font-size:28px;display:block
-}
-.project-art small{
- display:block;margin-top:8px;font-weight:bold;
- letter-spacing:2px
-}
-.project-card:nth-child(2) .project-art{
- background:linear-gradient(135deg,#dce8f3,#9bb4cc)
-}
-.project-card:nth-child(3) .project-art{
- background:linear-gradient(135deg,#fff0dc,#e6bd8c);
- color:#8a5422
-}
-.project-info{padding:17px}
-.project-info b{color:#082d52;font-size:14px}
-.project-info p{color:#718096;font-size:12px;line-height:1.6}
-
-.document-card{
- margin-top:20px;background:white;
- border:1px solid #e0e9f2;border-radius:15px;padding:23px
-}
-.document-card h3{color:#0756a5;margin-top:0}
-.document-card p{font-size:13px;color:#718096;line-height:1.7}
-
-/* PHOTO */
-.photo-gallery{
- display:grid;grid-template-columns:1fr 1fr;gap:18px
-}
-.photo-gallery img{
- width:100%;height:300px;object-fit:contain;
- background:#eaf0f7;border-radius:14px;
- padding:10px
-}
-
-/* CONTACT */
-.contact{
- background:linear-gradient(120deg,#082d52,#0756a5);
- border-radius:20px;padding:35px;color:white;
- display:flex;justify-content:space-between;
- align-items:center;gap:20px
-}
-.contact h2{font-size:28px}
-.contact p{font-size:14px;line-height:1.9;color:#d9eaff}
-.contact a{
- display:inline-block;background:white;color:#0756a5;
- text-decoration:none;padding:13px 17px;
- border-radius:9px;font-weight:bold;font-size:13px
-}
-footer{
- text-align:center;padding:25px;
- font-size:12px;color:#8595a8
-}
-
-/* RESPONSIVE */
-@media(max-width:760px){
- .nav{align-items:flex-start;flex-direction:column}
- .nav-links{gap:13px}
- .hero{grid-template-columns:1fr;text-align:center;padding:32px 22px 0}
- .hero-photo{height:260px}
- .hero-buttons{justify-content:center}
- .about-grid,.skills-grid,.org-grid{grid-template-columns:1fr}
- .contact{flex-direction:column;align-items:flex-start}
-}
+button,a{font:inherit}
+.login{min-height:100vh;display:grid;place-items:center;padding:20px;background:linear-gradient(145deg,#172554,#4338ca,#a855f7)}
+.login-card{background:white;border-radius:28px;padding:30px;width:100%;max-width:390px;text-align:center;box-shadow:0 20px 60px #0003}
+.login-icon{font-size:65px}
+.login-card h1{color:#4338ca;margin-bottom:8px}
+input{width:100%;padding:13px;border:1px solid #d1d5db;border-radius:12px;margin:7px 0 15px;font-size:16px}
+.btn{display:inline-block;border:0;border-radius:12px;padding:12px 18px;background:#4f46e5;color:white;text-decoration:none;font-weight:bold;cursor:pointer}
+.btn:hover{filter:brightness(.92)}
+#loginError{color:#dc2626;font-size:14px}
+.nav{display:flex;justify-content:space-between;align-items:center;gap:12px;flex-wrap:wrap;padding:15px 5%;background:#fff;box-shadow:0 3px 15px #0000000c}
+.brand{font-weight:900;color:#4338ca;font-size:21px}
+.logout{border:0;border-radius:20px;padding:9px 15px;background:#fee2e2;color:#991b1b;font-weight:bold;cursor:pointer}
+main{max-width:1100px;margin:auto;padding:24px 18px 45px}
+.hero{position:relative;overflow:hidden;border-radius:25px;padding:30px;color:white;background:linear-gradient(125deg,#172554,#4338ca 65%,#7c3aed);box-shadow:0 12px 30px #4338ca25}
+.hero h1{font-size:clamp(28px,5vw,45px);margin:8px 0}
+.hero p{line-height:1.7}
+.tag{display:inline-block;padding:7px 12px;border-radius:30px;background:#ffffff20;font-size:13px;font-weight:bold}
+.hero-art{font-size:45px;margin-top:8px;letter-spacing:5px}
+.stats{display:grid;grid-template-columns:repeat(3,1fr);gap:10px;margin-top:20px}
+.stat{padding:12px;border-radius:14px;background:#ffffff18;text-align:center}
+.stat b{display:block;font-size:22px}
+h2{color:#312e81;margin:28px 0 15px}
+.path-note{background:#fff7d6;border:1px solid #fcd34d;padding:14px 17px;border-radius:15px;line-height:1.6}
+.map{position:relative;display:grid;grid-template-columns:repeat(2,minmax(0,1fr));gap:16px}
+.mission{position:relative;display:block;text-decoration:none;color:#26334a;background:white;border:2px solid #e0e7ff;border-radius:22px;padding:19px;box-shadow:0 7px 20px #26334a0b;transition:.2s;overflow:hidden}
+.mission:hover{transform:translateY(-5px);box-shadow:0 12px 25px #4338ca20;border-color:#818cf8}
+.mission .emoji{font-size:37px}
+.mission .number{position:absolute;right:15px;top:15px;font-weight:900;color:#c7d2fe}
+.mission h3{margin:10px 0 7px;color:#3730a3}
+.mission p{margin:0 0 14px;color:#64748b;font-size:14px;line-height:1.5}
+.mission .go{font-weight:bold;color:#4f46e5;font-size:14px}
+.profile{display:grid;grid-template-columns:140px 1fr;align-items:center;gap:22px;background:white;padding:22px;border-radius:22px}
+.photo{width:140px;height:140px;border-radius:50%;object-fit:cover;background:#e0e7ff;border:5px solid #c4b5fd}
+.old-photo{width:100%;max-width:240px;max-height:280px;object-fit:cover;border-radius:17px;background:#e0e7ff}
+footer{text-align:center;color:#64748b;padding:20px;font-size:14px}
 @media(max-width:520px){
- main{padding:17px 13px 45px}
- .project-grid{grid-template-columns:1fr}
- .photo-gallery{grid-template-columns:1fr}
- .photo-gallery img{height:auto;max-height:350px}
- .timeline-item{grid-template-columns:1fr;gap:8px}
- .skill-items{grid-template-columns:1fr 1fr}
- .section-title{font-size:25px}
+.map{grid-template-columns:1fr}
+.hero{padding:22px}
+.stats{grid-template-columns:repeat(3,1fr)}
+.stat{font-size:12px}
+.profile{grid-template-columns:1fr;text-align:center}
+.photo{margin:auto}
+.brand{font-size:18px}
 }
 </style>
 </head>
-
 <body>
 
-<!-- HALAMAN LOGIN -->
 <section class="login" id="loginPage">
  <div class="login-card">
-  <div class="login-logo">ADLY.</div>
-  <div class="eyebrow">CREATIVE MEDIA · VISUAL DESIGN</div>
-
-  <h1>Welcome to My Portfolio</h1>
-  <p>Selamat datang di personal portfolio saya.
-  Silakan login untuk mengenal profil, pengalaman,
-  kemampuan, dan berbagai karya saya.</p>
-
+  <div class="login-icon">🧭🏝️</div>
+  <h1>Adventure Awaits!</h1>
+  <p>Masuk ke dunia petualangan Adly. Siapkan bekal dan semangatmu! ⚔️</p>
   <form id="loginForm">
-   <label for="email">Email</label>
-   <input type="email" id="email"
-   placeholder="Masukkan email" required>
-
-   <label for="password">Password</label>
-   <input type="password" id="password"
-   placeholder="Masukkan password" required>
-
-   <button class="login-btn" type="submit">
-    Masuk ke Portfolio →
-   </button>
-
-   <p id="loginError"></p>
+   <label for="email">📧 Email</label>
+   <input id="email" type="email" placeholder="Masukkan email" required>
+   <label for="password">🔐 Password</label>
+   <input id="password" type="password" placeholder="Masukkan password" required>
+   <button class="btn" style="width:100%" type="submit">Mulai Petualangan 🚀</button>
+   <p id="loginError" role="alert"></p>
   </form>
-
-  <small style="color:#91a1b4">
-   Adly Zaidan Zidna Fann · 2026
-  </small>
+  <small>Semoga login-mu tidak lebih sulit daripada soal UTS. 😂</small>
  </div>
 </section>
 
-<!-- HALAMAN PORTFOLIO -->
-<div id="portfolio" class="hidden">
+<div id="world" class="hidden">
+ <nav class="nav">
+  <div class="brand">🗺️ ADLY'S ADVENTURE</div>
+  <button class="logout" id="logoutBtn">Keluar ↗</button>
+ </nav>
 
-<header>
- <div class="nav">
-  <div class="brand">ADLY ZAIDAN.</div>
-
-  <nav class="nav-links">
-   <a href="#home">HOME</a>
-   <a href="#about">ABOUT</a>
-   <a href="#skills">SKILLS</a>
-   <a href="#experience">EXPERIENCE</a>
-   <a href="#organization">ORGANIZATION</a>
-   <a href="#projects">PROJECTS</a>
-   <a href="#contact">CONTACT</a>
-   <button class="logout" id="logoutBtn">Keluar ↗</button>
-  </nav>
- </div>
-</header>
-
-<main>
-
-<!-- INTRODUCTION -->
-<section class="hero" id="home">
- <div>
-  <div class="eyebrow">
-   CREATIVE MEDIA | VISUAL DESIGN | ORGANIZATION EXPERIENCE
-  </div>
-
-  <h1>Halo, saya <span>Adly!</span></h1>
-
-  <p>
-   Mahasiswa D3 Komputerisasi Akuntansi dengan latar belakang
-   Desain Komunikasi Visual. Saya memiliki minat pada desain
-   grafis, fotografi, videografi, editing video, dan
-   pengembangan web.
-  </p>
-
-  <div class="hero-buttons">
-   <a href="#projects" class="btn-white">Lihat Karya Saya ↓</a>
-   <a href="#contact" class="btn-outline">Hubungi Saya</a>
-  </div>
- </div>
-
- <div class="hero-photo">
-  <img src="Adly.png" alt="Foto Adly">
- </div>
-</section>
-
-<!-- ABOUT -->
-<section class="section" id="about">
- <div class="eyebrow">INTRODUCTION · 01</div>
- <h2 class="section-title">About Me</h2>
- <p class="section-desc">
-  Mengenal lebih dekat profil, pendidikan, dan minat
-  yang terus saya kembangkan.
- </p>
-
- <div class="about-grid">
-
-  <article class="card">
-   <img class="about-photo" src="Adly old.jpg"
-   alt="Foto lama Adly">
-
-   <div class="name">ADLY ZAIDAN ZIDNA FANN</div>
-
-   <p class="about-text">
-    Halo, saya Adly! Saya merupakan mahasiswa D3
-    Komputerisasi Akuntansi di Universitas Ma'soem.
-    Memiliki latar belakang Desain Komunikasi Visual
-    serta ketertarikan pada dunia kreatif dan teknologi.
-
-    Melalui pengalaman PKL, organisasi, dan berbagai
-    karya visual, saya terus mengembangkan kreativitas,
-    komunikasi, kerja sama tim, serta tanggung jawab.
-   </p>
-
-   <div class="chips">
-    <span class="chip">Graphic Design</span>
-    <span class="chip">Photography</span>
-    <span class="chip">Videography</span>
-    <span class="chip">Video Editing</span>
-    <span class="chip">Web Development</span>
+ <main>
+  <section class="hero">
+   <span class="tag">WORLD 01 · PLAYER PROFILE</span>
+   <h1>Welcome, Adventurer! ⚔️</h1>
+   <p>Halo, Adly! Selamat datang di peta petualanganmu. Jelajahi setiap pulau, selesaikan semua misi, dan kumpulkan pengalaman. Boss terakhirnya? Deadline tugas! 😂</p>
+   <div class="hero-art">🏰 ➜ 🌲 ➜ 🏝️ ➜ 💎</div>
+   <div class="stats">
+    <div class="stat"><b>6</b>Misi tersedia</div>
+    <div class="stat"><b>Lv. 01</b>Pemula</div>
+    <div class="stat"><b>∞</b>Semangat</div>
    </div>
-  </article>
+  </section>
 
-  <article class="card">
-   <div class="sub-title">PERSONAL PROFILE</div>
+  <h2>🧭 Peta Misi Petualangan</h2>
+  <div class="path-note">📜 <b>Petunjuk kapten:</b> Pilih kartu di bawah untuk membuka misi. Setiap kartu membawa kamu ke halaman latihan yang berbeda. Gas, petualang!</div>
 
-   <div class="info">
-    <span>Nama</span>
-    <b>Adly Zaidan Zidna Fann</b>
-   </div>
+  <div class="map" style="margin-top:18px">
+   <a class="mission" href="#profil" onclick="showProfile();return false;">
+    <span class="number">01</span>
+    <div class="emoji">🏕️</div>
+    <h3>Base Camp</h3>
+    <p>Kenali pemain utama, lihat biodata dan galeri foto Adly.</p>
+    <span class="go">Buka profil →</span>
+   </a>
 
-   <div class="info">
-    <span>Pendidikan</span>
-    <b>D3 Komputerisasi Akuntansi</b>
-   </div>
+   <a class="mission" href="lat41.html">
+    <span class="number">02</span>
+    <div class="emoji">⏳</div>
+    <h3>Time Island</h3>
+    <p>Pulau waktu. Lihat jam dan tanggal yang terus berjalan.</p>
+    <span class="go">Masuk pulau →</span>
+   </a>
 
-   <div class="info">
-    <span>Universitas</span>
-    <b>Universitas Ma'soem</b>
-   </div>
+   <a class="mission" href="lat42.html">
+    <span class="number">03</span>
+    <div class="emoji">🦴</div>
+    <h3>Age Cave</h3>
+    <p>Hitung usia dalam tahun, bulan, dan hari.</p>
+    <span class="go">Jelajahi gua →</span>
+   </a>
 
-   <div class="info">
-    <span>Domisili</span>
-    <b>Bandung, Jawa Barat</b>
-   </div>
+   <a class="mission" href="lat43.html">
+    <span class="number">04</span>
+    <div class="emoji">🌳</div>
+    <h3>Logic Forest</h3>
+    <p>Selesaikan teka-teki Fibonacci dan penjumlahan bilangan.</p>
+    <span class="go">Masuk hutan →</span>
+   </a>
 
-   <div class="sub-title" style="margin-top:30px">
-    EDUCATION
-   </div>
+   <a class="mission" href="lat44.html">
+    <span class="number">05</span>
+    <div class="emoji">🧪</div>
+    <h3>Grade Lab</h3>
+    <p>Uji nilai dan temukan huruf mutu A, B, C, D, atau E.</p>
+    <span class="go">Mulai eksperimen →</span>
+   </a>
 
-   <div class="info">
-    <span>2026 – sekarang</span>
-    <b>Universitas Ma'soem</b>
-   </div>
-
-   <p class="about-text">D3 Komputerisasi Akuntansi</p>
-
-   <div class="info">
-    <span>2023 – 2026</span>
-    <b>SMKN 1 Kota Serang</b>
-   </div>
-
-   <p class="about-text">Desain Komunikasi Visual</p>
-  </article>
-
- </div>
-</section>
-
-<!-- SKILLS -->
-<section class="section" id="skills">
- <div class="eyebrow">CAPABILITIES · 02</div>
- <h2 class="section-title">Skills & Tools</h2>
- <p class="section-desc">
-  Kemampuan personal, organisasi, dan aplikasi
-  yang saya gunakan dalam proses berkarya.
- </p>
-
- <div class="skills-grid">
-
-  <article class="card">
-   <div class="sub-title">PERSONAL SKILL</div>
-
-   <div class="skill-items">
-    <div class="skill">Photography</div>
-    <div class="skill">Video Editing</div>
-    <div class="skill">Content Creator</div>
-    <div class="skill">Social Media Management</div>
-    <div class="skill">Event Documentation</div>
-   </div>
-
-   <div class="sub-title" style="margin-top:25px">
-    ORGANIZATION SKILLS
-   </div>
-
-   <div class="skill-items">
-    <div class="skill">Teamwork & Collaboration</div>
-    <div class="skill">Communication</div>
-    <div class="skill">Time Management</div>
-    <div class="skill">Responsibility</div>
-    <div class="skill">Adaptability</div>
-   </div>
-  </article>
-
-  <article class="card">
-   <div class="sub-title">TOOLS</div>
-
-   <div class="tools">
-    <span class="tool">Canva</span>
-    <span class="tool">Adobe Illustrator</span>
-    <span class="tool">Adobe Photoshop</span>
-    <span class="tool">Adobe Animate</span>
-    <span class="tool">CapCut</span>
-    <span class="tool">Ibis Paint X</span>
-    <span class="tool">Microsoft Word (Menengah)</span>
-    <span class="tool">Microsoft Excel (Dasar)</span>
-   </div>
-  </article>
-
- </div>
-</section>
-
-<!-- EXPERIENCE -->
-<section class="section" id="experience">
- <div class="eyebrow">CAREER JOURNEY · 03</div>
- <h2 class="section-title">Work Experience</h2>
-
- <div class="timeline">
-
-  <article class="timeline-item">
-   <div class="year">2025 – 2026</div>
-   <div>
-    <h3>Praktik Kerja Lapangan</h3>
-    <p>
-     Universitas Sultan Ageng Tirtayasa ·
-     Bidang Information, Communication and Technology.
-    </p>
-   </div>
-  </article>
-
-  <article class="timeline-item">
-   <div class="year">2024 – 2025</div>
-   <div>
-    <h3>Scriptwriter</h3>
-    <p>
-     Kremov Pictures · Rumah produksi film Banten.
-    </p>
-   </div>
-  </article>
-
- </div>
-</section>
-
-<!-- ORGANIZATION -->
-<section class="section" id="organization">
- <div class="eyebrow">COLLABORATION · 04</div>
- <h2 class="section-title">Organization Experience</h2>
-
- <div class="org-grid">
-
-  <article class="card org-card">
-   <h3>SENDRATASIK</h3>
-   <p>Seni, Drama & Musik · SMKN 1 Kota Serang</p>
-
-   <ul>
-    <li>Aktif dalam organisasi Sendratasik selama masa sekolah.</li>
-    <li>Mewakili sekolah pada lomba paduan suara
-    tingkat Kota Serang, Banten.</li>
-    <li>Tampil di atas panggung dan kegiatan seni sekolah.</li>
-   </ul>
-  </article>
-
-  <article class="card org-card">
-   <h3>Duta Inspirasi Indonesia Batch 17</h3>
-
-   <p>
-    Duta Inspirasi Indonesia, mewakili Provinsi Aceh,
-    dengan divisi Duta Inspirasi Podcast tahun 2025.
-   </p>
-  </article>
-
- </div>
-</section>
-
-<!-- PROJECT -->
-<section class="section" id="projects">
- <div class="eyebrow">SELECTED WORKS · 05</div>
- <h2 class="section-title">Project & Portfolio</h2>
-
- <p class="section-desc">
-  Beberapa bidang karya dan kreativitas yang saya
-  eksplorasi dalam desain, fotografi, dan teknologi.
- </p>
-
- <div class="project-grid">
-
-  <article class="project-card">
-   <div class="project-art">
-    <div>
-     <strong>CROCS</strong>
-     <small>GRAPHIC DESIGN</small>
-    </div>
-   </div>
-   <div class="project-info">
-    <b>Poster Crocs</b>
-    <p>Desain grafis dan fotografi produk Crocs.</p>
-   </div>
-  </article>
-
-  <article class="project-card">
-   <div class="project-art">
-    <div>
-     <strong>PHOTO</strong>
-     <small>PRODUCT PHOTOGRAPHY</small>
-    </div>
-   </div>
-   <div class="project-info">
-    <b>Fotografi Produk Crocs</b>
-    <p>Eksplorasi fotografi dan komposisi visual produk.</p>
-   </div>
-  </article>
-
-  <article class="project-card">
-   <div class="project-art">
-    <div>
-     <strong>SURABI</strong>
-     <small>CREATIVE DESIGN</small>
-    </div>
-   </div>
-   <div class="project-info">
-    <b>Poster Surabi</b>
-    <p>Desain poster dan fotografi makanan.</p>
-   </div>
-  </article>
-
- </div>
-
- <div class="section">
-  <div class="sub-title">VIDEO EDITING, PODCAST & FOTOGRAFI</div>
-
-  <div class="photo-gallery">
-   <img src="Adly.png" alt="Foto Adly">
-   <img src="Adly old.jpg" alt="Dokumentasi Adly">
-  </div>
-  <p class="section-desc">
-   Dokumentasi kegiatan dan proses berkarya.
-  </p>
- </div>
-
- <div class="section">
-  <div class="sub-title">DIGITAL FASHION DESIGN</div>
-
-  <div class="card">
-   <p class="about-text">
-    Eksplorasi ilustrasi dan desain fashion digital
-    sebagai bagian dari pengembangan kreativitas visual.
-   </p>
-  </div>
- </div>
-
- <div class="section">
-  <div class="sub-title">SERTIFIKAT & PENGHARGAAN</div>
-
-  <div class="card">
-   <p class="about-text">
-    Dokumentasi sertifikat dan penghargaan sebagai
-    bagian dari perjalanan pendidikan dan pengalaman.
-   </p>
-  </div>
- </div>
-
- <div class="section">
-  <div class="sub-title">INTERACTIVE PROJECT</div>
-
-  <div class="card">
-   <h3 style="color:#0756a5">
-    Desain Perkenalan Diri Interaktif
-   </h3>
-
-   <p class="about-text">
-    Desain perkenalan diri yang memanfaatkan fitur
-    kamera dan gestur tangan.
-   </p>
-
-   <a href="https://new-adly-kenalannn.vercel.app"
-   target="_blank" rel="noopener"
-   style="color:#0756a5;font-weight:bold;font-size:13px">
-    Buka Interactive Project ↗
+   <a class="mission" href="uts_adly_algo.html">
+    <span class="number">06</span>
+    <div class="emoji">💎</div>
+    <h3>Algorithm Castle</h3>
+    <p>Hadapi boss terakhir: kalkulator aritmatika UTS!</p>
+    <span class="go">Tantang boss →</span>
    </a>
   </div>
- </div>
 
-</section>
-
-<!-- CONTACT -->
-<section class="section" id="contact">
- <div class="contact">
-  <div>
-   <div class="eyebrow" style="color:#b9dcff">
-    LET'S CONNECT · 06
+  <section id="profil">
+   <h2>👤 Base Camp · Data Diri</h2>
+   <div class="profile">
+    <img class="photo" src="Adly.png" alt="Foto Adly" onerror="this.style.display='none';document.getElementById('fallback').style.display='block'">
+    <div>
+     <div id="fallback" style="display:none;font-size:50px">😎</div>
+     <h3>Adly Zaidan Zidna Fann</h3>
+     <p>🎓 Mahasiswa Semester 1<br>💻 Komputerisasi Akuntansi<br>🧠 Calon penakluk algoritma</p>
+     <p><b>Motto:</b> “Kalau error, jangan menyerah. Coba cek titik koma dulu!” 😂</p>
+    </div>
    </div>
 
-   <h2>Terima kasih sudah berkunjung!</h2>
+   <h2>📸 Galeri Kenangan</h2>
+   <div class="profile" style="grid-template-columns:repeat(auto-fit,minmax(180px,1fr))">
+    <div>
+     <img class="old-photo" src="Adly old.jpg" alt="Foto lama Adly">
+     <p><b>Adly Old 📷</b></p>
+     <small>Foto lama — letakkan file Adly old.jpg di folder yang sama.</small>
+    </div>
+    <div>
+     <img class="old-photo" src="Adly.png" alt="Foto Adly terbaru">
+     <p><b>Adly.png ✨</b></p>
+     <small>Foto profil utama petualang.</small>
+    </div>
+   </div>
+  </section>
+ </main>
 
-   <p>
-    Terima kasih sudah meluangkan waktu untuk mengenal
-    saya melalui portofolio ini. Saya terbuka untuk
-    peluang belajar, berkolaborasi, dan berkontribusi
-    dalam dunia kreatif dan profesional.
-   </p>
-
-   <p>
-    <b>WhatsApp:</b> +62 838-4840-3291<br>
-    <b>Instagram:</b> @adl.fn_<br>
-    <b>Lokasi:</b> Bandung, Jawa Barat
-   </p>
-  </div>
-
-  <a href="https://instagram.com/adl.fn_"
-  target="_blank" rel="noopener">
-   Instagram Saya ↗
-  </a>
- </div>
-</section>
-
-</main>
-
-<footer>
- Made with ❤️ by Adly · 2026<br>
- Personal Portfolio · Creative Media & Visual Design
-</footer>
-
+ <footer>Made with ❤️ by Adly · 2026<br>Keep learning, keep exploring! 🚀</footer>
 </div>
 
-<!-- LOGIN SYSTEM -->
 <script>
 const USERNAME = "adly@gmail.com";
 const PASSWORD = "12345678";
 
 const loginPage = document.getElementById("loginPage");
-const portfolio = document.getElementById("portfolio");
+const world = document.getElementById("world");
 
-document.getElementById("loginForm")
-.addEventListener("submit",function(e){
-
+document.getElementById("loginForm").addEventListener("submit", function(e) {
  e.preventDefault();
 
- const email = document.getElementById("email")
- .value.trim().toLowerCase();
-
+ const email = document.getElementById("email").value.trim().toLowerCase();
  const password = document.getElementById("password").value;
 
- if(email === USERNAME && password === PASSWORD){
-
+ if (email === USERNAME && password === PASSWORD) {
   loginPage.classList.add("hidden");
-  portfolio.classList.remove("hidden");
-
+  world.classList.remove("hidden");
   document.getElementById("loginError").textContent = "";
 
-  window.scrollTo(0,0);
-
- }else{
-
+  if (location.hash === "#profil") {
+   document.getElementById("profil").scrollIntoView();
+  }
+ } else {
   document.getElementById("loginError").textContent =
-  "Email atau password salah. Silakan coba lagi.";
-
+   "Email atau password salah. Coba lagi, petualang! 😅";
  }
-
 });
 
-document.getElementById("logoutBtn")
-.addEventListener("click",function(){
-
- portfolio.classList.add("hidden");
+document.getElementById("logoutBtn").addEventListener("click", function() {
+ world.classList.add("hidden");
  loginPage.classList.remove("hidden");
-
  document.getElementById("loginForm").reset();
-
  window.scrollTo(0,0);
-
 });
+
+function showProfile() {
+ document.getElementById("profil").scrollIntoView({
+  behavior:"smooth"
+ });
+}
 </script>
 
 </body>
