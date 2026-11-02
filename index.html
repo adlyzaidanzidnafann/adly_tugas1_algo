@@ -1,586 +1,580 @@
-
 <!DOCTYPE html>
 <html lang="id">
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Adly's Adventure Map</title>
+<title>Biodata dan Scientific Calculator</title>
+<link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
 
 <style>
-* {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
-}
-
-html {
-  scroll-behavior: smooth;
-}
+* { box-sizing: border-box; }
 
 body {
-  font-family: Arial, sans-serif;
-  background: #eef2ff;
-  color: #26334a;
+    background: linear-gradient(135deg, #0f172a, #1d4ed8);
+    min-height: 100vh;
+    font-family: Arial, sans-serif;
+    padding-bottom: 40px;
 }
 
-.hidden {
-  display: none !important;
+.navbar { background: #0f172a; }
+
+.biodata-card {
+    max-width: 450px;
+    margin: 35px auto;
+    background: white;
+    color: #172554;
+    border-radius: 20px;
+    overflow: hidden;
+    box-shadow: 0 10px 30px #0004;
 }
 
-button, a {
-  font: inherit;
+.profile-header {
+    background: #1d4ed8;
+    color: white;
+    text-align: center;
+    padding: 28px 15px;
 }
 
-button {
-  cursor: pointer;
-}
-
-/* LOGIN */
-#loginPage {
-  min-height: 100vh;
-  display: flex;
-  justify-content: center;
-  align-items: center;
-  padding: 20px;
-  background:
-    radial-gradient(circle at top left, #818cf8, transparent 40%),
-    linear-gradient(135deg, #172554, #312e81, #4338ca);
-}
-
-.login-card {
-  width: 100%;
-  max-width: 390px;
-  padding: 35px 25px;
-  background: white;
-  border-radius: 25px;
-  text-align: center;
-  box-shadow: 0 15px 40px rgba(0,0,0,.25);
-}
-
-.login-icon {
-  font-size: 55px;
-  margin-bottom: 15px;
-}
-
-.login-card h1 {
-  color: #312e81;
-  margin-bottom: 10px;
-}
-
-.login-card p {
-  color: #64748b;
-  line-height: 1.6;
-  margin-bottom: 22px;
-}
-
-.login-card input {
-  width: 100%;
-  padding: 14px;
-  border: 1px solid #cbd5e1;
-  border-radius: 12px;
-  margin-bottom: 13px;
-  outline: none;
-}
-
-.login-card input:focus {
-  border-color: #6366f1;
-}
-
-.login-card button {
-  width: 100%;
-  padding: 14px;
-  border: none;
-  border-radius: 12px;
-  color: white;
-  background: #4f46e5;
-  font-weight: bold;
-}
-
-.login-card button:hover {
-  background: #3730a3;
-}
-
-#loginMessage {
-  color: #dc2626;
-  margin-top: 12px;
-  font-size: 13px;
-}
-
-/* NAVBAR */
-nav {
-  background: #1e1b4b;
-  color: white;
-  padding: 17px 7%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  gap: 15px;
-  flex-wrap: wrap;
-}
-
-nav h2 {
-  font-size: 19px;
-}
-
-nav a {
-  color: white;
-  text-decoration: none;
-  margin-left: 15px;
-  font-size: 14px;
-}
-
-/* HERO */
-.hero {
-  padding: 75px 20px;
-  text-align: center;
-  color: white;
-  background:
-    radial-gradient(circle at top, #818cf8, transparent 60%),
-    linear-gradient(135deg, #312e81, #1e1b4b);
-}
-
-.hero .tag {
-  display: inline-block;
-  padding: 8px 16px;
-  border: 1px solid rgba(255,255,255,.4);
-  border-radius: 30px;
-  margin-bottom: 20px;
-  font-size: 13px;
-}
-
-.hero h1 {
-  font-size: clamp(30px, 6vw, 48px);
-  margin-bottom: 15px;
-}
-
-.hero p {
-  max-width: 600px;
-  margin: auto;
-  line-height: 1.7;
-  color: #e0e7ff;
-}
-
-.hero button {
-  margin-top: 25px;
-  padding: 13px 23px;
-  border: none;
-  border-radius: 30px;
-  background: #fbbf24;
-  color: #1e1b4b;
-  font-weight: bold;
-}
-
-/* GENERAL SECTION */
-section {
-  padding: 55px 7%;
-}
-
-.section-heading {
-  text-align: center;
-  margin-bottom: 30px;
-}
-
-.section-heading h2 {
-  color: #312e81;
-  font-size: 28px;
-  margin-bottom: 10px;
-}
-
-.section-heading p {
-  color: #64748b;
-  line-height: 1.6;
-}
-
-/* MISSIONS */
-.mission-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(230px, 1fr));
-  gap: 20px;
-}
-
-.mission-card {
-  background: white;
-  border: 1px solid #e0e7ff;
-  border-radius: 20px;
-  padding: 25px;
-  box-shadow: 0 5px 18px rgba(49,46,129,.07);
-  transition: .25s;
-}
-
-.mission-card:hover {
-  transform: translateY(-5px);
-  box-shadow: 0 12px 25px rgba(49,46,129,.13);
-}
-
-.mission-icon {
-  font-size: 40px;
-  margin-bottom: 15px;
-}
-
-.mission-card h3 {
-  color: #312e81;
-  margin-bottom: 10px;
-}
-
-.mission-card p {
-  color: #64748b;
-  font-size: 14px;
-  line-height: 1.7;
-  min-height: 70px;
-}
-
-.mission-btn {
-  display: inline-block;
-  margin-top: 18px;
-  padding: 11px 17px;
-  background: #4f46e5;
-  color: white;
-  border-radius: 10px;
-  text-decoration: none;
-  font-weight: bold;
-  font-size: 14px;
-}
-
-.mission-btn:hover {
-  background: #312e81;
-}
-
-/* PROFILE */
-.profile-section {
-  background: #e0e7ff;
-}
-
-.profile-card {
-  max-width: 750px;
-  margin: auto;
-  background: white;
-  border-radius: 22px;
-  padding: 30px;
-  display: flex;
-  align-items: center;
-  gap: 25px;
-  box-shadow: 0 8px 25px rgba(49,46,129,.08);
-}
-
-.profile-card img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 18px;
-  background: #e2e8f0;
-}
-
-.profile-info h2 {
-  color: #312e81;
-  margin-bottom: 12px;
-}
-
-.profile-info p {
-  color: #64748b;
-  line-height: 1.8;
-  font-size: 14px;
-}
-
-.motto {
-  margin-top: 12px;
-  padding: 12px;
-  border-left: 4px solid #6366f1;
-  background: #eef2ff;
-  border-radius: 8px;
-  font-style: italic;
-}
-
-/* GALLERY */
-.gallery-grid {
-  display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-  gap: 18px;
-}
-
-.gallery-grid img {
-  width: 100%;
-  height: 260px;
-  object-fit: cover;
-  border-radius: 18px;
-  background: #e2e8f0;
-  box-shadow: 0 5px 15px rgba(0,0,0,.08);
-}
-
-/* FOOTER */
-footer {
-  background: #1e1b4b;
-  color: #c7d2fe;
-  text-align: center;
-  padding: 25px 15px;
-  font-size: 13px;
-  line-height: 1.8;
-}
-
-/* RESPONSIVE */
-@media (max-width: 600px) {
-  nav {
+.avatar {
+    width: 85px;
+    height: 85px;
+    border-radius: 50%;
+    background: white;
+    color: #1d4ed8;
+    display: flex;
     justify-content: center;
+    align-items: center;
+    font-size: 40px;
+    font-weight: bold;
+    margin: auto auto 15px;
+}
+
+.profile-body {
+    padding: 25px;
     text-align: center;
-  }
+}
 
-  nav a {
-    margin: 0 6px;
-  }
-
-  .profile-card {
-    flex-direction: column;
+.profile-footer {
+    background: #f1f5f9;
     text-align: center;
-  }
+    padding: 14px;
+    color: #64748b;
+}
 
-  .profile-card img {
-    width: 160px;
-    height: 160px;
-  }
+.nav-links a {
+    display: inline-block;
+    background: #1d4ed8;
+    color: white;
+    text-decoration: none;
+    padding: 8px 12px;
+    margin: 4px;
+    border-radius: 7px;
+    font-size: 13px;
+}
 
-  section {
-    padding: 45px 5%;
-  }
+.calculator {
+    max-width: 520px;
+    margin: 30px auto;
+    background: #202938;
+    color: white;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 12px 35px #0005;
+}
+
+.display {
+    background: #dce9d4;
+    color: #15251a;
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 15px;
+    min-height: 105px;
+    text-align: right;
+    overflow-wrap: anywhere;
+}
+
+#expression {
+    font-size: 14px;
+    min-height: 22px;
+    color: #52634a;
+}
+
+#screen {
+    font-size: 30px;
+    font-weight: bold;
+    min-height: 40px;
+}
+
+#angleMode {
+    font-size: 12px;
+    color: #52634a;
+}
+
+.keypad {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 8px;
+}
+
+.key {
+    border: none;
+    border-radius: 9px;
+    min-height: 48px;
+    font-size: 15px;
+    font-weight: bold;
+    background: #354153;
+    color: white;
+    cursor: pointer;
+}
+
+.key:hover { filter: brightness(1.2); }
+.key.function { background: #46566f; }
+.key.operator { background: #1767a5; }
+.key.danger { background: #a83c49; }
+.key.equal {
+    background: #2563eb;
+    grid-column: span 2;
+}
+.key.number { background: #303b4d; }
+
+.section-title {
+    font-size: 13px;
+    color: #b9c6d8;
+    margin: 15px 0 8px;
+    font-weight: bold;
+}
+
+.history {
+    background: #172131;
+    border-radius: 10px;
+    padding: 12px;
+    margin-top: 18px;
+    max-height: 180px;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 8px;
+    border-bottom: 1px solid #39475b;
+    font-size: 13px;
+    overflow-wrap: anywhere;
+}
+
+.history-item:last-child { border-bottom: none; }
+.history-item button {
+    margin-top: 5px;
+    font-size: 11px;
+}
+
+@media(max-width: 400px) {
+    .calculator { padding: 12px; }
+    .keypad { gap: 5px; }
+    .key { min-height: 43px; font-size: 13px; }
 }
 </style>
 </head>
 
 <body>
 
-<!-- HALAMAN LOGIN -->
-<div id="loginPage">
-  <div class="login-card">
-    <div class="login-icon">🗺️</div>
-    <h1>Adly's Adventure Map</h1>
-    <p>
-      Selamat datang, petualang!<br>
-      Masuk untuk memulai perjalanan dan menyelesaikan semua misi.
-    </p>
+<nav class="navbar navbar-dark">
+    <div class="container">
+        <span class="navbar-brand fw-bold">
+            BIODATA MAHASISWA
+        </span>
+    </div>
+</nav>
 
-    <form id="loginForm">
-      <input
-        type="email"
-        id="email"
-        placeholder="Masukkan email"
-        required
-      >
+<div class="container">
 
-      <input
-        type="password"
-        id="password"
-        placeholder="Masukkan password"
-        required
-      >
+<div class="biodata-card">
+    <div class="profile-header">
+        <div class="avatar">A</div>
+        <h3 class="fw-bold">Adly Zaidan Zidna Fann</h3>
+        <p class="mb-0">Mahasiswa</p>
+    </div>
 
-      <button type="submit">Mulai Petualangan 🚀</button>
-    </form>
+    <div class="profile-body">
+        <h6 class="fw-bold">NIM</h6>
+        <p>262302009</p>
 
-    <div id="loginMessage"></div>
-  </div>
+        <h6 class="fw-bold">Program Studi</h6>
+        <p>Komputerisasi Akuntansi</p>
+
+        <h6 class="fw-bold">Semester</h6>
+        <p>1</p>
+
+        <hr>
+        <h6 class="fw-bold">Navigasi Materi</h6>
+        <div class="nav-links">
+            <a href="lat41.html">Latihan 41</a>
+            <a href="lat42.html">Latihan 42</a>
+            <a href="lat43.html">Latihan 43</a>
+            <a href="lat44.html">Latihan 44</a>
+        </div>
+    </div>
+
+    <div class="profile-footer">
+        © 2026 - Biodata Mahasiswa
+    </div>
 </div>
 
-<!-- HALAMAN UTAMA -->
-<div id="mainPage" class="hidden">
+<div class="calculator">
 
-  <nav>
-    <h2>🗺️ Adly's Adventure Map</h2>
-    <div>
-      <a href="#home">Home</a>
-      <a href="#missions">Misi</a>
-      <a href="#profile">Profil</a>
-      <a href="#gallery">Galeri</a>
-    </div>
-  </nav>
+    <h4 class="text-center fw-bold mb-3">
+        SCIENTIFIC CALCULATOR
+    </h4>
 
-  <!-- HERO -->
-  <header class="hero" id="home">
-    <div class="tag">WELCOME TO MY DIGITAL WORLD</div>
-
-    <h1>Let's Start The Adventure! 🏰</h1>
-
-    <p>
-      Selamat datang di dunia petualangan Adly.
-      Jelajahi setiap pulau, lewati berbagai tantangan,
-      dan selesaikan seluruh misi untuk mencapai tujuan akhir!
-    </p>
-
-    <button onclick="document.getElementById('missions').scrollIntoView()">
-      Jelajahi Misi →
-    </button>
-  </header>
-
-  <!-- MISSIONS -->
-  <section id="missions">
-    <div class="section-heading">
-      <h2>⚔️ Adventure Missions</h2>
-      <p>
-        Ada 6 misi yang harus diselesaikan.
-        Pilih misi dan mulailah petualanganmu!
-      </p>
+    <div class="display">
+        <div id="expression"></div>
+        <div id="screen">0</div>
+        <div id="angleMode">DEG</div>
     </div>
 
-    <div class="mission-grid">
-
-      <!-- MISSION 1 -->
-      <div class="mission-card">
-        <div class="mission-icon">🏕️</div>
-        <h3>1. Base Camp</h3>
-        <p>
-          Kenali lebih dekat profil sang petualang
-          dan informasi tentang pembuat website ini.
-        </p>
-        <a href="#profile" class="mission-btn">
-          Kunjungi →
-        </a>
-      </div>
-
-      <!-- MISSION 2 -->
-      <div class="mission-card">
-        <div class="mission-icon">⏳</div>
-        <h3>2. Time Island</h3>
-        <p>
-          Jelajahi tantangan tentang waktu
-          dan pelajari cara menghitungnya.
-        </p>
-        <a href="lat41.html" class="mission-btn">
-          Mulai Misi →
-        </a>
-      </div>
-
-      <!-- MISSION 3 -->
-      <div class="mission-card">
-        <div class="mission-icon">🦇</div>
-        <h3>3. Age Cave</h3>
-        <p>
-          Masuki gua misterius dan selesaikan
-          tantangan seputar kategori umur.
-        </p>
-        <a href="lat42.html" class="mission-btn">
-          Mulai Misi →
-        </a>
-      </div>
-
-      <!-- MISSION 4 -->
-      <div class="mission-card">
-        <div class="mission-icon">🌲</div>
-        <h3>4. Logic Forest</h3>
-        <p>
-          Hadapi tantangan logika dan gunakan
-          kemampuan berpikir komputasional.
-        </p>
-        <a href="lat43.html" class="mission-btn">
-          Mulai Misi →
-        </a>
-      </div>
-
-      <!-- MISSION 5 -->
-      <div class="mission-card">
-        <div class="mission-icon">🧪</div>
-        <h3>5. Grade Lab</h3>
-        <p>
-          Masuk ke laboratorium nilai dan
-          selesaikan tantangan pengolahan data.
-        </p>
-        <a href="lat44.html" class="mission-btn">
-          Mulai Misi →
-        </a>
-      </div>
-
-      <!-- MISSION 6 -->
-      <div class="mission-card">
-        <div class="mission-icon">🏰</div>
-        <h3>6. Algorithm Castle</h3>
-        <p>
-          Pelajari dan praktikkan operator aritmatika
-          serta perbandingan menggunakan JavaScript.
-        </p>
-
-        <!-- LINK KALKULATOR YANG SUDAH DIPERBAIKI -->
-        <a href="prasyarat_p6_adly_algo.html" class="mission-btn">
-          Mulai Misi →
-        </a>
-      </div>
-
-    </div>
-  </section>
-
-  <!-- PROFILE -->
-  <section class="profile-section" id="profile">
-    <div class="section-heading">
-      <h2>👨‍🚀 About The Adventurer</h2>
-      <p>Kenalan dengan orang di balik petualangan ini.</p>
+    <div class="d-flex gap-2 mb-3">
+        <button class="btn btn-outline-light flex-fill"
+                onclick="toggleAngle()">DEG / RAD</button>
+        <button class="btn btn-outline-light flex-fill"
+                onclick="copyResult()">SALIN HASIL</button>
     </div>
 
-    <div class="profile-card">
-      <img src="Adly.png" alt="Foto Adly Zaidan">
+    <div class="section-title">FUNGSI ILMIAH</div>
 
-      <div class="profile-info">
-        <h2>Adly Zaidan Zidna Fann</h2>
+    <div class="keypad">
+        <button class="key function" onclick="scientific('sin')">sin</button>
+        <button class="key function" onclick="scientific('cos')">cos</button>
+        <button class="key function" onclick="scientific('tan')">tan</button>
+        <button class="key function" onclick="scientific('asin')">sin⁻¹</button>
+        <button class="key function" onclick="scientific('acos')">cos⁻¹</button>
 
-        <p>
-          <strong>Status:</strong> Mahasiswa Semester 1
-        </p>
+        <button class="key function" onclick="scientific('atan')">tan⁻¹</button>
+        <button class="key function" onclick="scientific('sqrt')">√</button>
+        <button class="key function" onclick="scientific('cbrt')">∛</button>
+        <button class="key function" onclick="scientific('square')">x²</button>
+        <button class="key function" onclick="scientific('cube')">x³</button>
 
-        <p>
-          <strong>NIM:</strong> 262302009
-        </p>
+        <button class="key function" onclick="scientific('log')">log</button>
+        <button class="key function" onclick="scientific('ln')">ln</button>
+        <button class="key function" onclick="scientific('factorial')">x!</button>
+        <button class="key function" onclick="insert('Math.PI')">π</button>
+        <button class="key function" onclick="insert('Math.E')">e</button>
+    </div>
 
-        <p>
-          <strong>Program Studi:</strong> Komputerisasi Akuntansi
-        </p>
+    <div class="section-title">OPERATOR PERHITUNGAN</div>
 
-        <div class="motto">
-          "Kalau error, jangan menyerah. Coba cek titik koma dulu!"
+    <div class="keypad">
+        <button class="key danger" onclick="clearAll()">AC</button>
+        <button class="key danger" onclick="backspace()">DEL</button>
+        <button class="key function" onclick="insert('(')">(</button>
+        <button class="key function" onclick="insert(')')">)</button>
+        <button class="key operator" onclick="insert('/')">÷</button>
+
+        <button class="key number" onclick="insert('7')">7</button>
+        <button class="key number" onclick="insert('8')">8</button>
+        <button class="key number" onclick="insert('9')">9</button>
+        <button class="key operator" onclick="insert('%')">mod</button>
+        <button class="key operator" onclick="insert('*')">×</button>
+
+        <button class="key number" onclick="insert('4')">4</button>
+        <button class="key number" onclick="insert('5')">5</button>
+        <button class="key number" onclick="insert('6')">6</button>
+        <button class="key operator" onclick="insert('**')">xʸ</button>
+        <button class="key operator" onclick="insert('-')">−</button>
+
+        <button class="key number" onclick="insert('1')">1</button>
+        <button class="key number" onclick="insert('2')">2</button>
+        <button class="key number" onclick="insert('3')">3</button>
+        <button class="key operator" onclick="insert('/')">÷</button>
+        <button class="key operator" onclick="insert('+')">+</button>
+
+        <button class="key number" onclick="insert('0')">0</button>
+        <button class="key number" onclick="insert('.')">.</button>
+        <button class="key function" onclick="insert('Ans')">Ans</button>
+        <button class="key equal" onclick="calculate()">=</button>
+    </div>
+
+    <div class="section-title">OPERATOR PERBANDINGAN</div>
+
+    <div class="keypad">
+        <button class="key operator" onclick="insert('>')">&gt;</button>
+        <button class="key operator" onclick="insert('<')">&lt;</button>
+        <button class="key operator" onclick="insert('>=')">&gt;=</button>
+        <button class="key operator" onclick="insert('<=')">&lt;=</button>
+        <button class="key operator" onclick="insert('==')">==</button>
+
+        <button class="key operator" onclick="insert('===')">===</button>
+        <button class="key operator" onclick="insert('!=')">!=</button>
+        <button class="key operator" onclick="insert('!==')">!==</button>
+        <button class="key function" onclick="insert('!')">!</button>
+        <button class="key function" onclick="insert('Math.PI')">π</button>
+    </div>
+
+    <div class="history">
+        <div class="d-flex justify-content-between align-items-center">
+            <strong>Riwayat Perhitungan</strong>
+            <button class="btn btn-sm btn-danger"
+                    onclick="clearHistory()">Hapus</button>
         </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- GALLERY -->
-  <section id="gallery">
-    <div class="section-heading">
-      <h2>📸 My Adventure Gallery</h2>
-      <p>
-        Beberapa momen dari perjalanan sang petualang.
-      </p>
+        <div id="historyList" class="mt-2">
+            <small>Belum ada riwayat.</small>
+        </div>
     </div>
 
-    <div class="gallery-grid">
-      <img src="Adly.png" alt="Foto Adly">
-      <img src="Adly old.jpg" alt="Foto Adly lama">
-    </div>
-  </section>
-
-  <!-- FOOTER -->
-  <footer>
-    <p>© 2026 Adly's Adventure Map</p>
-    <p>Created with ❤️ by Adly Zaidan Zidna Fann</p>
-    <p>Keep Learning, Keep Exploring, Never Give Up!</p>
-  </footer>
-
+</div>
 </div>
 
 <script>
-/* DATA LOGIN */
-const USERNAME = "adly@gmail.com";
-const PASSWORD = "12345678";
+let expression = "";
+let answer = 0;
+let angle = "DEG";
+let history = [];
 
-/* PROSES LOGIN */
-document.getElementById("loginForm").addEventListener("submit", function(event) {
-  event.preventDefault();
+const screen = document.getElementById("screen");
+const expressionDisplay = document.getElementById("expression");
+const angleDisplay = document.getElementById("angleMode");
 
-  const email = document.getElementById("email").value.trim();
-  const password = document.getElementById("password").value;
-  const message = document.getElementById("loginMessage");
+function updateDisplay() {
+    screen.textContent = expression || "0";
+    expressionDisplay.textContent = "";
+    angleDisplay.textContent = angle;
+}
 
-  if (email === USERNAME && password === PASSWORD) {
-    document.getElementById("loginPage").classList.add("hidden");
-    document.getElementById("mainPage").classList.remove("hidden");
+function insert(value) {
+    if (expression === "Error") expression = "";
 
-    window.scrollTo(0, 0);
-  } else {
-    message.textContent = "Email atau password salah. Coba lagi!";
-  }
+    if (value === "Math.PI") value = "π";
+    if (value === "Math.E") value = "e";
+
+    expression += value;
+    updateDisplay();
+}
+
+function clearAll() {
+    expression = "";
+    updateDisplay();
+}
+
+function backspace() {
+    expression = expression.slice(0, -1);
+    updateDisplay();
+}
+
+function toggleAngle() {
+    angle = angle === "DEG" ? "RAD" : "DEG";
+    updateDisplay();
+}
+
+function toRadians(x) {
+    return angle === "DEG" ? x * Math.PI / 180 : x;
+}
+
+function fromRadians(x) {
+    return angle === "DEG" ? x * 180 / Math.PI : x;
+}
+
+function factorial(n) {
+    if (!Number.isInteger(n) || n < 0 || n > 170) {
+        throw new Error("Faktorial hanya untuk bilangan bulat 0–170");
+    }
+
+    let result = 1;
+    for (let i = 2; i <= n; i++) result *= i;
+    return result;
+}
+
+function prepareExpression(source) {
+    let s = source;
+
+    s = s.replace(/π/g, "Math.PI");
+    s = s.replace(/(^|[^A-Za-z])e(?![A-Za-z])/g, "$1Math.E");
+    s = s.replace(/\bAns\b/g, "(" + answer + ")");
+
+    const functions = [
+        "sin", "cos", "tan", "asin", "acos", "atan",
+        "sqrt", "cbrt", "log", "ln", "factorial"
+    ];
+
+    for (const name of functions) {
+        const regex = new RegExp("\\b" + name + "\\(", "g");
+        s = s.replace(regex, "functions." + name + "(");
+    }
+
+    s = s.replace(/\^/g, "**");
+
+    s = s.replace(/(\d+(?:\.\d+)?|\([^()]*\))!/g,
+        "functions.factorial($1)");
+
+    return s;
+}
+
+function calculateExpression(source) {
+    let js = prepareExpression(source);
+
+    const allowed = /^[0-9+\-*/%().,!<>=\sA-Za-z_]*$/;
+
+    if (!allowed.test(js)) {
+        throw new Error("Ekspresi tidak valid");
+    }
+
+    const functions = {
+        sin: x => Math.sin(toRadians(x)),
+        cos: x => Math.cos(toRadians(x)),
+        tan: x => Math.tan(toRadians(x)),
+        asin: x => fromRadians(Math.asin(x)),
+        acos: x => fromRadians(Math.acos(x)),
+        atan: x => fromRadians(Math.atan(x)),
+        sqrt: x => Math.sqrt(x),
+        cbrt: x => Math.cbrt(x),
+        log: x => Math.log10(x),
+        ln: x => Math.log(x),
+        factorial: x => factorial(x)
+    };
+
+    const names = [
+        "Math", "PI", "E", "functions",
+        "sin", "cos", "tan", "asin", "acos",
+        "atan", "sqrt", "cbrt", "log", "ln",
+        "factorial"
+    ];
+
+    const identifiers = js.match(/[A-Za-z_]+/g) || [];
+
+    for (const id of identifiers) {
+        if (!names.includes(id)) {
+            throw new Error("Fungsi tidak dikenal: " + id);
+        }
+    }
+
+    return Function(
+        "functions",
+        '"use strict"; return (' + js + ')'
+    )(functions);
+}
+
+function calculate() {
+    if (!expression) return;
+
+    try {
+        const result = calculateExpression(expression);
+
+        if (typeof result === "number" && !Number.isFinite(result)) {
+            throw new Error("Hasil tidak terdefinisi");
+        }
+
+        const oldExpression = expression;
+        answer = result;
+        expression = String(result);
+
+        screen.textContent = expression;
+        expressionDisplay.textContent = oldExpression + " =";
+
+        addHistory(oldExpression, result);
+
+    } catch (error) {
+        screen.textContent = "Error";
+        expressionDisplay.textContent = error.message;
+        expression = "";
+    }
+}
+
+function scientific(name) {
+    if (!expression) return;
+
+    const value = expression;
+
+    const functions = {
+        sin: "sin(",
+        cos: "cos(",
+        tan: "tan(",
+        asin: "asin(",
+        acos: "acos(",
+        atan: "atan(",
+        sqrt: "sqrt(",
+        cbrt: "cbrt(",
+        log: "log(",
+        ln: "ln("
+    };
+
+    if (name === "square") expression = "(" + value + ")**2";
+    else if (name === "cube") expression = "(" + value + ")**3";
+    else if (name === "factorial") expression = "(" + value + ")!";
+    else expression = functions[name] + value + ")";
+
+    updateDisplay();
+}
+
+function addHistory(rumus, result) {
+    history.unshift({
+        rumus: rumus,
+        result: String(result)
+    });
+
+    if (history.length > 20) history.pop();
+    renderHistory();
+}
+
+function renderHistory() {
+    const list = document.getElementById("historyList");
+    list.innerHTML = "";
+
+    if (!history.length) {
+        list.innerHTML = "<small>Belum ada riwayat.</small>";
+        return;
+    }
+
+    history.forEach(item => {
+        const div = document.createElement("div");
+        div.className = "history-item";
+
+        const text = document.createElement("div");
+        text.textContent = item.rumus + " = " + item.result;
+
+        const button = document.createElement("button");
+        button.className = "btn btn-sm btn-outline-light";
+        button.textContent = "Gunakan hasil";
+
+        button.onclick = () => {
+            expression = item.result;
+            updateDisplay();
+        };
+
+        div.append(text, button);
+        list.appendChild(div);
+    });
+}
+
+function clearHistory() {
+    history = [];
+    renderHistory();
+}
+
+async function copyResult() {
+    const value = screen.textContent;
+
+    if (!value || value === "0" || value === "Error") {
+        alert("Belum ada hasil untuk disalin.");
+        return;
+    }
+
+    try {
+        await navigator.clipboard.writeText(value);
+        alert("Hasil berhasil disalin!");
+    } catch {
+        alert("Clipboard tidak tersedia di browser ini.");
+    }
+}
+
+document.addEventListener("keydown", function(event) {
+    if (/^[0-9.]$/.test(event.key)) insert(event.key);
+    else if (["+", "-", "*", "/", "%", "(", ")"].includes(event.key)) {
+        insert(event.key);
+    }
+    else if (event.key === "Enter") calculate();
+    else if (event.key === "Backspace") backspace();
+    else if (event.key === "Escape") clearAll();
 });
+
+updateDisplay();
+renderHistory();
 </script>
 
 </body>
